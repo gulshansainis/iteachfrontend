@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
-
-// Components
+import Layout from "../components/layout"
+import SEO from "../components/seo"
 import { Link, graphql } from "gatsby"
 
 const Categories = ({ pageContext, data }) => {
@@ -10,7 +10,11 @@ const Categories = ({ pageContext, data }) => {
   const categoryHeader = `More posts in "${category}"`
 
   return (
-    <div>
+    <Layout>
+      <SEO
+        title={categoryHeader}
+        keywords={`learn ${category}, ${category} tutorials`}
+      />
       <h1>{categoryHeader}</h1>
       <ul>
         {edges.map(({ node }) => {
@@ -23,7 +27,7 @@ const Categories = ({ pageContext, data }) => {
           )
         })}
       </ul>
-    </div>
+    </Layout>
   )
 }
 
