@@ -26,7 +26,6 @@ export default class BlogList extends React.Component {
             />
           )
         })}
-        {hasNextPage && <Link to={`/articles/${currentPage + 1}`}>Next</Link>}
         {hasPreviousPage && (
           <Link
             to={`/articles/${currentPage - 1 === 1 ? "" : currentPage - 1}`}
@@ -34,6 +33,7 @@ export default class BlogList extends React.Component {
             Prev
           </Link>
         )}
+        {hasNextPage && <Link to={`/articles/${currentPage + 1}`}>Next</Link>}
       </Layout>
     )
   }
@@ -45,6 +45,7 @@ export const blogListQuery = graphql`
       sort: { fields: [frontmatter___date], order: DESC }
       limit: $limit
       skip: $skip
+      filter: { frontmatter: { published: { eq: true } } }
     ) {
       pageInfo {
         currentPage

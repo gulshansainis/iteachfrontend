@@ -3,11 +3,11 @@ import PropTypes from "prop-types"
 import React from "react"
 
 const Card = ({ to, title, excerpt }) => (
-  <div>
+  <article>
     <h3>{title}</h3>
     <p>{excerpt}</p>
     <Link to={to}>Read More</Link>
-  </div>
+  </article>
 )
 
 Card.propTypes = {

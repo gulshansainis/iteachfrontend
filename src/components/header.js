@@ -7,7 +7,9 @@ const Header = ({ siteTitle }) => (
     <h1>
       <Link to="/">{siteTitle}</Link>
     </h1>
-    <Link to="/articles">Articles</Link>
+    <nav>
+      <Link to="/articles">Articles</Link>
+    </nav>
   </header>
 )
 
