@@ -1,17 +1,21 @@
 @font-face {
-    font-family: Nunito;
-    src: url('./Nunito/Nunito-Regular.ttf') format('truetype');
+  font-family: Nunito;
+  src: url("./Nunito/Nunito-Regular.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: Nunito;
-    src: url('./Nunito/Nunito-Bold.ttf') format('truetype');
-    font-weight: bold;
+  font-family: Nunito;
+  src: url("./Nunito/Nunito-Bold.ttf") format("truetype");
+  font-weight: bold;
 }
 
 /* Page =================================================== */
+:root {
+  --bg-primary: #1b1b1b;
+  --white: #fff;
+}
 html {
-  background: #ffffff;
+  background: var(--white);
   font-size: 62.5%;
   -webkit-overflow-scrolling: touch;
   -webkit-tap-highlight-color: #f3f5f6;
@@ -29,10 +33,49 @@ body {
   line-height: 1.5em;
   color: #000000;
 }
-html, body {
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
+html,
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+/* Global =================================================== */
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
+  display: block;
+}
+a:link,
+a:visited {
+  color: inherit;
+}
+a:hover,
+a:active {
+  color: inherit;
+  text-decoration: underline;
+}
+.container {
+  width: 960px;
+  max-width: 100%;
+  padding: 20px;
+  margin: 0 auto;
+  min-height: calc(100vh - 126px);
 }
 /* Typography =================================================== */
 h1,
@@ -93,4 +136,52 @@ h6,
   font-weight: normal;
   letter-spacing: 1px;
   text-transform: uppercase;
+}
+/* Top Header =================================================== */
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 1em;
+  background: var(--bg-primary);
+  color: var(--white);
+}
+.main-nav h1 {
+  margin-bottom: 0px;
+}
+.main-nav > ul {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.main-nav * {
+  margin-right: 1em;
+}
+
+@media screen and (max-width: 575px) {
+  .main-nav {
+    /* flex-direction: column; */
+  }
+  .main-nav ul {
+    flex-direction: row; /* Change this to 'column' to stack the links */
+  }
+}
+/* Main =================================================== */
+.article-card {
+  padding: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0 2px 4px rgba(3, 27, 78, 0.06);
+  box-shadow: 0 2px 4px rgba(3, 27, 78, 0.06);
+}
+/* Footer =================================================== */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background: var(--bg-primary);
+  color: var(--white);
 }

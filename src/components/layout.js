@@ -27,10 +27,16 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <main role="main">{children}</main>
-      <footer>
-        Copyright © {new Date().getFullYear()}{" "}
-        <a href="https://www.iteachfrontend.com">iTeachFrontend</a>
+      <div class="container">
+        <main className="main" role="main">
+          {children}
+        </main>
+      </div>
+      <footer className="footer">
+        <p>
+          Copyright © {new Date().getFullYear()}{" "}
+          <a href="https://www.iteachfrontend.com">iTeachFrontend</a>
+        </p>
       </footer>
     </>
   )

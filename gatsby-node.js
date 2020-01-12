@@ -75,7 +75,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   // Make tag pages
   categorys.forEach(category => {
     createPage({
-      path: `/category/${category.fieldValue.toLowerCase()}/`,
+      path: `/learn/${category.fieldValue.toLowerCase()}/`,
       component: categoryTemplate,
       context: {
         category: category.fieldValue,

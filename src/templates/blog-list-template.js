@@ -15,6 +15,7 @@ export default class BlogList extends React.Component {
     return (
       <Layout>
         <SEO title="Latest Articles On Frontend Development" />
+        <h1>Latest Articles</h1>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (

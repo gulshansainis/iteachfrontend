@@ -13,7 +13,7 @@ export default function Template({ data }) {
       <h1>{frontmatter.title}</h1>
       <h2>{frontmatter.date}</h2>
       {frontmatter.category && (
-        <Link to={`category/${frontmatter.category.toLowerCase()}`}>
+        <Link to={`learn/${frontmatter.category.toLowerCase()}`}>
           {frontmatter.category}
         </Link>
       )}
