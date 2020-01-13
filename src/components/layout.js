@@ -27,11 +27,9 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <div class="container">
-        <main className="main" role="main">
-          {children}
-        </main>
-      </div>
+      <main className="main container" role="main">
+        {children}
+      </main>
       <footer className="footer">
         <p>
           Copyright © {new Date().getFullYear()}{" "}

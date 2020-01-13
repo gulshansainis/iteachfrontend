@@ -4,23 +4,23 @@ import React from "react"
 
 const Header = ({ siteTitle }) => (
   <header>
-    <nav className="main-nav">
+    <nav className="main-nav container">
       <h1>
         <Link to="/">{siteTitle}</Link>
       </h1>
       <ul>
         <li>
-          <Link className="h1" to="/articles">
+          <Link className="h1 h1-small" to="/articles">
             Articles
           </Link>
         </li>
         <li>
-          <Link className="h1" to="/guides">
+          <Link className="h1 h1-small" to="/guides">
             Guides
           </Link>
         </li>
         <li>
-          <Link className="h1" to="/videos">
+          <Link className="h1 h1-small" to="/videos">
             Videos
           </Link>
         </li>
