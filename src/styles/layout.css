@@ -142,10 +142,10 @@ h6,
   text-transform: uppercase;
 }
 /* Top Header =================================================== */
-header {
+.header {
   background: var(--bg-primary);
 }
-.main-nav {
+.header-nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -154,35 +154,35 @@ header {
   background: var(--bg-primary);
   color: var(--white);
 }
-.main-nav h1 {
+.header-nav h1 {
   border-bottom: #100e17;
   margin-bottom: 0px;
 }
-.main-nav > ul {
+.header-nav > ul {
   display: flex;
   justify-content: space-between;
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
-.main-nav li {
+.header-nav li {
   margin-right: 1em;
 }
-.main-nav li:last-child {
+.header-nav li:last-child {
   margin-right: 0;
 }
 
 @media screen and (max-width: 640px) {
-  .main-nav {
+  .header-nav {
     flex-direction: column;
   }
-  .main-nav .h1-small {
+  .header-nav .h1-small {
     margin-bottom: 0.75em;
     font-size: 18px;
     font-size: 1.8rem;
     line-height: 1.25;
   }
-  .main-nav ul {
+  .header-nav ul {
     flex-direction: row; /* Change this to 'column' to stack the links */
   }
 }

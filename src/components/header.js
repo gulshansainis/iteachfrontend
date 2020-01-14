@@ -3,8 +3,8 @@ import PropTypes from "prop-types"
 import React from "react"
 
 const Header = ({ siteTitle }) => (
-  <header>
-    <nav className="main-nav container">
+  <header className="header">
+    <nav className="header-nav container">
       <h1>
         <Link to="/">{siteTitle}</Link>
       </h1>
