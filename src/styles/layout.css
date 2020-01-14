@@ -17,6 +17,7 @@
 :root {
   --bg-primary: #1b1b1b;
   --white: #fff;
+  --black: #000;
 }
 html {
   background: var(--white);
@@ -35,7 +36,7 @@ body {
   font-size: 16px;
   font-size: 1.6rem;
   line-height: 1.5em;
-  color: #000000;
+  color: var(--black);
 }
 html,
 body {
