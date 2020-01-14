@@ -10,16 +10,18 @@ export default function Template({ data }) {
   return (
     <Layout>
       <SEO title={frontmatter.title} keywords={frontmatter.keywords} />
-      <header>
-        <h1>{frontmatter.title}</h1>
-      </header>
-      <h5 className="published-date">{frontmatter.date}</h5>
-      {frontmatter.category && (
-        <Link to={`learn/${frontmatter.category.toLowerCase()}`}>
-          {frontmatter.category}
-        </Link>
-      )}
-      <div dangerouslySetInnerHTML={{ __html: html }} />
+      <article>
+        <header>
+          <h1>{frontmatter.title}</h1>
+        </header>
+        <h5 className="published-date">{frontmatter.date}</h5>
+        {frontmatter.category && (
+          <Link to={`learn/${frontmatter.category.toLowerCase()}`}>
+            {frontmatter.category}
+          </Link>
+        )}
+        <div dangerouslySetInnerHTML={{ __html: html }} />
+      </article>
     </Layout>
   )
 }
