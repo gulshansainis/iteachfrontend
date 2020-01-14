@@ -10,11 +10,11 @@ export default function Template({ data }) {
   return (
     <Layout>
       <SEO title={frontmatter.title} keywords={frontmatter.keywords} />
-      <article>
-        <header>
+      <article className="post">
+        <header className="post-header">
           <h1>{frontmatter.title}</h1>
         </header>
-        <h5 className="published-date">{frontmatter.date}</h5>
+        <h5 className="post-publish-date">{frontmatter.date}</h5>
         {frontmatter.category && (
           <Link to={`learn/${frontmatter.category.toLowerCase()}`}>
             {frontmatter.category}
