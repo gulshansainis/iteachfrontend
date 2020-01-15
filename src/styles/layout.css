@@ -20,7 +20,7 @@
   --bg-primary: #1b1b1b;
   --white: #fff;
   --black: #000;
-  --light-black: #9c9c9c;
+  --light-black: #6e6e6e;
 }
 html {
   background: var(--white);
@@ -203,6 +203,15 @@ h6,
 
 .post-publish-date {
   color: var(--light-black);
+}
+
+/* Code =================================================== */
+.token.constant,
+.token.deleted,
+.token.property,
+.token.symbol,
+.token.tag {
+  color: #ff488a !important;
 }
 /* Footer =================================================== */
 .footer {
