@@ -1,12 +1,14 @@
 @font-face {
   font-family: Nunito;
   src: url("./Nunito/Nunito-Regular.ttf") format("truetype");
+  font-display: swap;
 }
 
 @font-face {
   font-family: Nunito;
   src: url("./Nunito/Nunito-Bold.ttf") format("truetype");
   font-weight: bold;
+  font-display: swap;
 }
 /*
 * {
