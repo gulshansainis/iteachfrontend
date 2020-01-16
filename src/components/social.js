@@ -5,7 +5,7 @@ const Social = () => (
     <li>
       <a
         href="https://twitter.com/iteachfrontend"
-        rel="noopener"
+        rel="noopener noreferrer"
         target="_blank"
       >
         <svg
@@ -22,7 +22,7 @@ const Social = () => (
     <li>
       <a
         href="https://www.facebook.com/iteachfrontend"
-        rel="noopener"
+        rel="noopener noreferrer"
         target="_blank"
       >
         <svg
@@ -42,7 +42,7 @@ const Social = () => (
     <li>
       <a
         href="https://www.instagram.com/iteachfrontend/"
-        rel="noopener"
+        rel="noopener noreferrer"
         target="_blank"
       >
         <svg
@@ -62,7 +62,7 @@ const Social = () => (
     <li>
       <a
         href="https://www.youtube.com/channel/UCFiH8AZ0H29QiaaPcKf4-cg/"
-        rel="noopener"
+        rel="noopener noreferrer"
         target="_blank"
       >
         <svg
@@ -77,7 +77,11 @@ const Social = () => (
       </a>
     </li>
     <li>
-      <a href="https://dev.to/iteachfrontend" rel="noopener" target="_blank">
+      <a
+        href="https://dev.to/iteachfrontend"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="21"
