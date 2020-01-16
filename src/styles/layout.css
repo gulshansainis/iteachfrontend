@@ -271,3 +271,11 @@ h6,
   flex-wrap: wrap;
   background: var(--bg-primary);
 }
+.footer .social {
+  list-style-type: none;
+  padding: 0px;
+}
+.footer .social li {
+  display: inline;
+  margin-right: 1em;
+}

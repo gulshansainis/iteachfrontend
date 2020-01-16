@@ -10,6 +10,7 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
+import Social from "./social"
 import "../styles/normalize.css"
 import "../styles/layout.css"
 
@@ -35,6 +36,7 @@ const Layout = ({ children }) => {
           Copyright © {new Date().getFullYear()}{" "}
           <a href="https://www.iteachfrontend.com">iTeachFrontend</a>
         </p>
+        <Social />
       </footer>
     </>
   )
