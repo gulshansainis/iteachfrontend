@@ -57,6 +57,7 @@ body {
 }
 a {
   text-decoration: none;
+  cursor: pointer;
 }
 article,
 aside,
@@ -79,6 +80,7 @@ a:hover,
 a:active {
   color: inherit;
   text-decoration: underline;
+  text-decoration-color: var(--yellow);
 }
 .container {
   width: 960px;
