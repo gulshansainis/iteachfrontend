@@ -279,3 +279,6 @@ h6,
   display: inline;
   margin-right: 1em;
 }
+.footer .social li:last-child {
+  margin-right: 0;
+}
