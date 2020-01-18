@@ -1,7 +1,7 @@
 ---
 date: "2020-01-18"
-title: "What Is HTML5 Doctype?"
-keywords: "postone"
+title: "What Is HTML 5 Doctype?"
+keywords: "html doctype, what is html doctype, is docktype mandatory"
 published: true
 category: "html"
 ---
