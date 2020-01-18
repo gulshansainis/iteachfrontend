@@ -20,7 +20,10 @@ export default function Template({ data }) {
             {frontmatter.category}
           </Link>
         )}
-        <div dangerouslySetInnerHTML={{ __html: html }} />
+        <div
+          className="post-content"
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
       </article>
     </Layout>
   )
