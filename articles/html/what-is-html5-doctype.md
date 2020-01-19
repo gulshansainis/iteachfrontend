@@ -1,7 +1,7 @@
 ---
 date: "2020-01-18"
 title: "What Is HTML 5 Doctype?"
-keywords: "html doctype, what is html doctype, is docktype mandatory"
+keywords: "html doctype, what is html doctype, is doctype mandatory"
 published: true
 category: "html"
 ---
