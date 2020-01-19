@@ -13,6 +13,7 @@ import Header from "./header"
 import Social from "./social"
 import "../styles/normalize.css"
 import "../styles/layout.css"
+import Hero from "./hero"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -28,6 +29,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
+      <Hero title="Advance Your Frontend Skills" cta="#latest-courses" />
       <main className="main container" role="main">
         {children}
       </main>
