@@ -6,10 +6,14 @@ import { Link } from "gatsby"
 
 export default function Template({ data }) {
   const { markdownRemark } = data
-  const { frontmatter, html } = markdownRemark
+  const { frontmatter, html, excerpt } = markdownRemark
   return (
     <Layout>
-      <SEO title={frontmatter.title} keywords={frontmatter.keywords} />
+      <SEO
+        title={frontmatter.title}
+        keywords={frontmatter.keywords}
+        description={excerpt}
+      />
       <article className="post">
         <header className="post-header">
           <h1>{frontmatter.title}</h1>
@@ -33,6 +37,7 @@ export const pageQuery = graphql`
   query($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
+      excerpt
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title

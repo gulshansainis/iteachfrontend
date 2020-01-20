@@ -14,6 +14,7 @@ const Categories = ({ pageContext, data }) => {
       <SEO
         title={categoryHeader}
         keywords={`learn ${category}, ${category} tutorials`}
+        description={`Learn ${category} from experts and take your knowledge to next level to harness the full potential of ${category}. Our simple and easy to follow tutorials and articles on ${category} will help you advance your skills from zeor to hero level.`}
       />
       <h1>{categoryHeader}</h1>
       <ul>
