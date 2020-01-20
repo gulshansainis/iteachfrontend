@@ -20,7 +20,7 @@ It allows browsers to correctly interpret which rules have been used to create u
 
 ## HTML5 Valid doctypes
 
-We will be just talking about HTML5 doctypes here as, it is backward-compatible with previous versions of the specification. Doctype declaration is case insensitive, so any of following forms are valid HTML5 doctype declarations `<!DOCTYPE html>`, `<!doctype html>`, `<!doctype HTML>` or even `<!doctype Html>`.
+We will be just talking about HTML5 doctypes here as, it is latest and backward-compatible with previous versions of the specification. Doctype declaration is case insensitive, so any of following forms are valid HTML5 doctype declarations `<!DOCTYPE html>`, `<!doctype html>`, `<!doctype HTML>` or even `<!doctype Html>`.
 
 ## Is doctype mandatory
 
