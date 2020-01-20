@@ -316,7 +316,12 @@ h6,
   width: 100%;
   min-height: 235px;
 }
-
+.article-card-category,
+.post-category,
+.post-content a {
+  color: #007db5;
+  font-weight: 600;
+}
 /* Medium width devices*/
 @media screen and (max-width: 640px) {
   .col-md-1 {

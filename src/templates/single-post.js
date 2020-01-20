@@ -20,9 +20,11 @@ export default function Template({ data }) {
         </header>
         <h5 className="post-publish-date">{frontmatter.date}</h5>
         {frontmatter.category && (
-          <Link to={`learn/${frontmatter.category.toLowerCase()}`}>
-            {frontmatter.category}
-          </Link>
+          <div className="post-category">
+            <Link to={`learn/${frontmatter.category.toLowerCase()}`}>
+              #{frontmatter.category}
+            </Link>
+          </div>
         )}
         <div
           className="post-content"

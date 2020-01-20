@@ -81,12 +81,14 @@ const IndexPage = props => {
         <h2 className="col-12 align-center mt-2 text-3x">Recent Articles</h2>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
+          const category = node.frontmatter.category
           return (
             <div className="col-md-6 col-sm-12" key={node.fields.slug}>
               <Card
                 to={node.fields.slug}
                 title={title}
                 excerpt={node.excerpt}
+                category={category}
               />
             </div>
           )
@@ -117,6 +119,7 @@ export const articlesQuery = graphql`
           }
           frontmatter {
             title
+            category
           }
           excerpt
         }

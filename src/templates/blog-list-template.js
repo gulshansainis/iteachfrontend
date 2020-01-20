@@ -18,12 +18,14 @@ export default class BlogList extends React.Component {
         <h1>Latest Articles</h1>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
+          const category = node.frontmatter.category
           return (
             <Card
               key={node.fields.slug}
               to={node.fields.slug}
               title={title}
               excerpt={node.excerpt}
+              category={category}
             />
           )
         })}
@@ -63,6 +65,7 @@ export const blogListQuery = graphql`
           }
           frontmatter {
             title
+            category
           }
           excerpt
         }
