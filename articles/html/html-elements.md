@@ -6,7 +6,7 @@ published: true
 category: "html"
 ---
 
-HTML web pages are made up of various elements. Each element has its own purpose, it might contain a image, some text content, a heading, a hyperlink or some other information to be used by browser. **Let's understand this by an example**
+HTML web pages are made up of various elements. Each element has its own purpose, it might contain an image, some text content, a heading, a hyperlink or some other information to be used by the browser. **Let's understand this by an example**
 
 ```markup
 <!DOCTYPE html>
@@ -14,12 +14,12 @@ HTML web pages are made up of various elements. Each element has its own purpose
 </html>
 ```
 
-In above example we can see html element starting with `<html lang="en">` tag next to [Doctype declaration](/what-is-html-5-doctype) and, ending with closing `</html>` tag. In most cases, an element is made up of two tags, a start tag and an end tag.
+In above example we can see HTML element starting with `<html lang="en">` tag next to [Doctype declaration](/what-is-html-5-doctype) and, ending with closing `</html>` tag. In most cases, an element is made up of two tags, a start tag, and an end tag.
 
 - **Start tag** - It begins with less than sign (<) and ends with greater than sign (>)
-- **End tag** - It begins with less than sign (<), followed by forward slash (/) and ends with greater than sign (>)
+- **End tag** - It begins with less than sign (<), followed by a forward slash (/) and ends with greater than sign (>)
 
-Below is another example of **paragraph** element
+Below is another example of the **paragraph** element
 
 ```markup
 <p>Some beautiful text inside paragraph</p>
@@ -27,7 +27,7 @@ Below is another example of **paragraph** element
 
 `<p>` is start tag and `</p>` is end tag in above example. Between start and end tags we have text content.
 
-You might have noticed `lang="en"` in very first example; these are called attributes. Attributes provide additional information to browser, related to enclosing element. The example defines the content language as English by adding the lang attribute with the value "en". Attributes can be defined only inside start tag. Attributes are mostly in form of key value pair however in some cases, values are not required. Again, going back to our example: the key is `lang` and value is `en`.
+You might have noticed `lang="en"` in the very first example; these are called attributes. Attributes provide additional information to the browser, related to the enclosing element. The example defines the content language as English by adding the lang attribute with the value "en". Attributes can be defined only inside the start tag. Attributes are mostly in the form of key-value pair however in some cases, values are not required. Again, going back to our example: the key is `lang` and value is `en`.
 
 Below, is list of mostly commonly used HTML elements with their description
 
