@@ -18,9 +18,9 @@ a processing instruction indicating the markup language used in the document.
 
 It allows browsers to correctly interpret which rules have been used to create underlying webpage, and subsequently render them correctly. It also tell spec validators(for example the [W3C HTML validator](http://validator.w3.org/)) what type of HTML should be expected and how it should be validated.
 
-## Valid doctypes
+## HTML5 Valid doctypes
 
-Doctype declaration is case insensitive, so any of following forms are valid HTML5 doctype declarations `<!DOCTYPE html>`, `<!doctype html>`, `<!doctype HTML>` or even `<!doctype Html>`.
+We will be just talking about HTML5 doctypes here as, it is backward-compatible with previous versions of the specification. Doctype declaration is case insensitive, so any of following forms are valid HTML5 doctype declarations `<!DOCTYPE html>`, `<!doctype html>`, `<!doctype HTML>` or even `<!doctype Html>`.
 
 ## Is doctype mandatory
 
