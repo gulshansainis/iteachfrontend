@@ -7,23 +7,18 @@ import { Link } from "gatsby"
 export default function Template({ data }) {
   const { markdownRemark } = data
   const { frontmatter, html, excerpt } = markdownRemark
+  const { title, keywords, date, category } = frontmatter
   return (
     <Layout>
-      <SEO
-        title={frontmatter.title}
-        keywords={frontmatter.keywords}
-        description={excerpt}
-      />
+      <SEO title={title} keywords={keywords} description={excerpt} />
       <article className="post">
         <header className="post-header">
-          <h1>{frontmatter.title}</h1>
+          <h1>{title}</h1>
         </header>
-        <h5 className="post-publish-date">{frontmatter.date}</h5>
-        {frontmatter.category && (
+        <h5 className="post-publish-date">{date}</h5>
+        {category && (
           <div className="post-category">
-            <Link to={`learn/${frontmatter.category.toLowerCase()}`}>
-              #{frontmatter.category}
-            </Link>
+            <Link to={`learn/${category.toLowerCase()}`}>#{category}</Link>
           </div>
         )}
         <div
