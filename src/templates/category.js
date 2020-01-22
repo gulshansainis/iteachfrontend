@@ -3,11 +3,17 @@ import PropTypes from "prop-types"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Link, graphql } from "gatsby"
+import Card from "../components/card"
 
 const Categories = ({ pageContext, data }) => {
   const { category } = pageContext
   const { edges } = data.allMarkdownRemark
   const categoryHeader = `More posts in "${category}"`
+  const {
+    currentPage,
+    hasNextPage,
+    hasPreviousPage,
+  } = data.allMarkdownRemark.pageInfo
 
   return (
     <Layout>
@@ -17,17 +23,33 @@ const Categories = ({ pageContext, data }) => {
         description={`Learn ${category} from experts and take your knowledge to next level to harness the full potential of ${category}. Our simple and easy to follow tutorials and articles on ${category} will help you advance your skills from zeor to hero level.`}
       />
       <h1>{categoryHeader}</h1>
-      <ul>
-        {edges.map(({ node }) => {
-          const { slug } = node.fields
-          const { title } = node.frontmatter
-          return (
-            <li key={slug}>
-              <Link to={slug}>{title}</Link>
-            </li>
-          )
-        })}
-      </ul>
+      {edges.map(({ node }) => {
+        const title = node.frontmatter.title || node.fields.slug
+        const category = node.frontmatter.category
+        return (
+          <Card
+            key={node.fields.slug}
+            to={node.fields.slug}
+            title={title}
+            excerpt={node.excerpt}
+            category={category}
+          />
+        )
+      })}
+      {hasPreviousPage && (
+        <Link
+          to={`/learn/${category.toLowerCase()}/${
+            currentPage - 1 === 1 ? "" : currentPage - 1
+          }`}
+        >
+          Prev
+        </Link>
+      )}
+      {hasNextPage && (
+        <Link to={`/learn/${category.toLowerCase()}/${currentPage + 1}`}>
+          Next
+        </Link>
+      )}
     </Layout>
   )
 }
@@ -58,15 +80,24 @@ Categories.propTypes = {
 export default Categories
 
 export const pageQuery = graphql`
-  query($category: String) {
+  query($category: String, $skip: Int!, $limit: Int!) {
     allMarkdownRemark(
-      limit: 2000
+      limit: $limit
+      skip: $skip
       sort: { fields: [frontmatter___date], order: DESC }
       filter: {
         frontmatter: { category: { in: [$category] }, published: { eq: true } }
       }
     ) {
       totalCount
+      pageInfo {
+        currentPage
+        hasNextPage
+        hasPreviousPage
+        itemCount
+        pageCount
+        perPage
+      }
       edges {
         node {
           fields {
@@ -74,7 +105,9 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
+            category
           }
+          excerpt
         }
       }
     }

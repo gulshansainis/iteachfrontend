@@ -317,7 +317,7 @@ h6,
   align-items: center;
   justify-content: center;
   padding: 1em;
-  background: var(--dark-black)
+  background: var(--dark-black);
 }
 
 .featured-bar a {
@@ -327,7 +327,7 @@ h6,
   justify-content: center;
   margin-right: 1em;
   padding: 10px;
-  color: var(--white)
+  color: var(--white);
 }
 
 .featured-bar svg {
@@ -451,9 +451,6 @@ h6,
   }
   .col-sm-12 {
     width: 100%;
-  }
-  .hero h1 {
-    font-size: 260%;
   }
   .header-nav {
     flex-direction: row;

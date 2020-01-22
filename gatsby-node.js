@@ -29,6 +29,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         categoryGroup: allMarkdownRemark(limit: 2000) {
           group(field: frontmatter___category) {
             fieldValue
+            nodes {
+              fields {
+                slug
+              }
+            }
           }
         }
       }
@@ -74,12 +79,23 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const categorys = result.data.categoryGroup.group
   // Make tag pages
   categorys.forEach(category => {
-    createPage({
-      path: `/learn/${category.fieldValue.toLowerCase()}/`,
-      component: categoryTemplate,
-      context: {
-        category: category.fieldValue,
-      },
+    const posts = category.nodes
+    const numPages = Math.ceil(posts.length / postsPerPage)
+    Array.from({ length: numPages }).forEach((_, i) => {
+      createPage({
+        path:
+          i === 0
+            ? `/learn/${category.fieldValue.toLowerCase()}/`
+            : `/learn/${category.fieldValue.toLowerCase()}/${i + 1}`,
+        component: categoryTemplate,
+        context: {
+          category: category.fieldValue,
+          limit: postsPerPage,
+          skip: i * postsPerPage,
+          numPages,
+          currentPage: i + 1,
+        },
+      })
     })
   })
 }
