@@ -4,13 +4,6 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Card from "../components/card"
 import CTAButton from "../components/ctaButton"
-import ReactIcon from "../images/react-logo.svg"
-import AngularIcon from "../images/angular-logo.svg"
-import CSSIcon from "../images/css3-logo.svg"
-import JSIcon from "../images/js-logo.svg"
-import GatsbyIcon from "../images/gatsby-logo.svg"
-import HTML5Icon from "../images/html5-logo.svg"
-// import VueIcon from "../images/vue-logo.svg"
 
 const IndexPage = props => {
   const posts = props.data.allMarkdownRemark.edges
@@ -18,65 +11,6 @@ const IndexPage = props => {
     <Layout>
       <SEO title="Master Frontend Development" />
 
-      <div className="row">
-        <h2 id="latest-courses" className="col-12 align-center mt-2 text-3x">
-          Latest Courses
-        </h2>
-        <div className="col-4 col-md-6 col-sm-12">
-          <Card
-            to="#"
-            title="HTML5"
-            excerpt=""
-            displayCta={false}
-            icon={<HTML5Icon className="article-card-topic-icon" />}
-          />
-        </div>
-        <div className="col-4 col-md-6 col-sm-12">
-          <Card
-            to="#"
-            title="CSS3"
-            excerpt=""
-            displayCta={false}
-            icon={<CSSIcon className="article-card-topic-icon" />}
-          />
-        </div>
-        <div className="col-4 col-md-6 col-sm-12">
-          <Card
-            to="#"
-            title="JavaScript"
-            excerpt=""
-            displayCta={false}
-            icon={<JSIcon className="article-card-topic-icon" />}
-          />
-        </div>
-        <div className="col-4 col-md-6 col-sm-12">
-          <Card
-            to="#"
-            title="Angular"
-            excerpt=""
-            displayCta={false}
-            icon={<AngularIcon className="article-card-topic-icon" />}
-          />
-        </div>
-        <div className="col-4 col-md-6 col-sm-12">
-          <Card
-            to="#"
-            title="ReactJS"
-            excerpt=""
-            displayCta={false}
-            icon={<ReactIcon className="article-card-topic-icon" />}
-          />
-        </div>
-        <div className="col-4 col-md-6 col-sm-12">
-          <Card
-            to="#"
-            title="Gatsby"
-            excerpt=""
-            displayCta={false}
-            icon={<GatsbyIcon className="article-card-topic-icon" />}
-          />
-        </div>
-      </div>
       <div className="row">
         <h2 className="col-12 align-center mt-2 text-3x">Recent Articles</h2>
         {posts.map(({ node }) => {
