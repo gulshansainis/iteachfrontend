@@ -21,8 +21,9 @@
   --white: #fff;
   --black: #000;
   --yellow: #ffd82a;
+  --green: #6a7b76;
+  --orange: #f99707;
   --gradient-yellow: #e4a8040f;
-  --red: #96031a;
   --dark-yellow: #e4a804;
   --dark-green: #38473b;
   --light-black: #6d676e;
@@ -103,11 +104,6 @@ h6 {
   font-family: inherit;
   font-weight: bold;
   color: inherit;
-}
-h1 small,
-h2 small {
-  font-weight: normal;
-  color: #bfbfbf;
 }
 h1,
 .h1 {
@@ -398,12 +394,6 @@ h6,
   .header-logoText {
     display: none;
   }
-  .header-nav .h1-small {
-    margin-bottom: 0.75em;
-    font-size: 18px;
-    font-size: 1.8rem;
-    line-height: 1.25;
-  }
   .header-nav ul {
     flex-direction: row; /* Change this to 'column' to stack the links */
   }
@@ -484,6 +474,7 @@ h6,
 /* Footer =================================================== */
 .footer {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -492,6 +483,7 @@ h6,
 .footer .social {
   list-style-type: none;
   padding: 0px;
+  margin-bottom: 0px;
 }
 .footer .social li {
   display: inline;
@@ -499,4 +491,47 @@ h6,
 }
 .footer .social li:last-child {
   margin-right: 0;
+}
+
+.subscription {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em;
+  justify-content: space-around;
+  -webkit-box-shadow: 0 4px 4px rgba(3, 27, 78, 0.06);
+  box-shadow: 0 4px 4px rgba(3, 27, 78, 0.06);
+  background-color: var(--green);
+  color: var(--white) !important;
+}
+
+.subscription img {
+  width: 200px;
+  height: auto;
+}
+.subscription form div {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.subscription input {
+  padding: 6px 12px;
+}
+
+.subscription input.sub-btn {
+  margin-right: 0;
+}
+
+.subscription .robos {
+  position: absolute;
+  left: -5000px;
+}
+
+.subscription .sub-btn {
+  border: 0px;
+}
+.subscription .sub-btn:hover {
+  background-color: var(--light-black);
+  color: var(--white);
 }

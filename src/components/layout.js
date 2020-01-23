@@ -14,6 +14,7 @@ import Social from "./social"
 import "../styles/normalize.css"
 import "../styles/layout.css"
 import FeaturedBar from "./featured-bar"
+import Subscribe from "./subscribe"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -33,12 +34,13 @@ const Layout = ({ children }) => {
       <main className="main container" role="main">
         {children}
       </main>
+      <Subscribe />
       <footer className="footer">
+        <Social />
         <p>
           Copyright © {new Date().getFullYear()}{" "}
           <a href="https://www.iteachfrontend.com">iTeachFrontend</a>
         </p>
-        <Social />
       </footer>
     </>
   )
