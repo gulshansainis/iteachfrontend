@@ -21,7 +21,7 @@ function SEO({ description, lang, meta, title, keywords, featuredImage }) {
 
   const metaDescription = description || site.siteMetadata.description
   const metaKeywords = keywords || site.siteMetadata.keywords
-  const metaFeaturedImage = featuredImage ? featuredImage.base64 : ""
+  const metaFeaturedImage = featuredImage ? featuredImage.src : ""
 
   return (
     <Helmet

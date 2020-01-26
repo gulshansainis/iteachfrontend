@@ -24,8 +24,10 @@ const Categories = ({ pageContext, data }) => {
       />
       <h1>{categoryHeader}</h1>
       {edges.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug
-        const category = node.frontmatter.category
+        const { title, category, featuredImage } = node.frontmatter
+        const featuredImgFluid = featuredImage
+          ? featuredImage.childImageSharp.fluid
+          : undefined
         return (
           <Card
             key={node.fields.slug}
@@ -33,6 +35,7 @@ const Categories = ({ pageContext, data }) => {
             title={title}
             excerpt={node.excerpt}
             category={category}
+            featuredImgFluid={featuredImgFluid}
           />
         )
       })}
@@ -106,6 +109,13 @@ export const pageQuery = graphql`
           frontmatter {
             title
             category
+            featuredImage {
+              childImageSharp {
+                fluid(maxWidth: 800) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
           excerpt
         }

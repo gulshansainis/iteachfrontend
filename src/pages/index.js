@@ -14,8 +14,10 @@ const IndexPage = props => {
       <div className="row">
         <h2 className="col-12 align-center mt-2 text-3x">Recent Articles</h2>
         {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          const category = node.frontmatter.category
+          const { title, category, featuredImage } = node.frontmatter
+          const featuredImgFluid = featuredImage
+            ? featuredImage.childImageSharp.fluid
+            : undefined
           return (
             <div className="col-md-6 col-sm-12" key={node.fields.slug}>
               <Card
@@ -23,6 +25,7 @@ const IndexPage = props => {
                 title={title}
                 excerpt={node.excerpt}
                 category={category}
+                featuredImgFluid={featuredImgFluid}
               />
             </div>
           )
@@ -54,6 +57,13 @@ export const articlesQuery = graphql`
           frontmatter {
             title
             category
+            featuredImage {
+              childImageSharp {
+                fluid(maxWidth: 800) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
           excerpt
         }
