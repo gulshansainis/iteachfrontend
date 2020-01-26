@@ -342,6 +342,25 @@ h6,
   color: #007db5;
   font-weight: 600;
 }
+.article-card img {
+  padding: 2rem;
+  background-image: linear-gradient(0deg, var(--dark-yellow), var(--yellow));
+  box-shadow: 0 20px 100px 0 rgba(0, 0, 0, 0.15);
+  border-radius: 1rem;
+}
+.article-card h3 {
+  margin-top: 3rem;
+}
+
+.post-content img {
+  padding: 2rem;
+  background-image: linear-gradient(
+    0deg,
+    var(--dark-yellow),
+    var(--yellow)
+  ) !important;
+  box-shadow: 0 20px 100px 0 rgba(0, 0, 0, 0.15) !important;
+}
 /* Medium width devices*/
 @media screen and (max-width: 640px) {
   .col-md-1 {

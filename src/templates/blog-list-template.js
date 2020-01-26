@@ -17,8 +17,11 @@ export default class BlogList extends React.Component {
         <SEO title="Latest Articles On Frontend Development" />
         <h1>Latest Articles</h1>
         {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          const category = node.frontmatter.category
+          console.log(node.frontmatter)
+          const { title, category, featuredImage } = node.frontmatter
+          const featuredImgFluid = featuredImage
+            ? featuredImage.childImageSharp.fluid
+            : undefined
           return (
             <Card
               key={node.fields.slug}
@@ -26,6 +29,7 @@ export default class BlogList extends React.Component {
               title={title}
               excerpt={node.excerpt}
               category={category}
+              featuredImgFluid={featuredImgFluid}
             />
           )
         })}
@@ -66,6 +70,13 @@ export const blogListQuery = graphql`
           frontmatter {
             title
             category
+            featuredImage {
+              childImageSharp {
+                fluid(maxWidth: 800) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
           excerpt
         }
