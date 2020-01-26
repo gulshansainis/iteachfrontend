@@ -5,6 +5,7 @@ module.exports = {
     keywords:
       "learn frontend development, learn html, learn css, learn js, learn ReactJs, learn angular, learn vue, learn frontend development online, learn ReactJs online, learn angular online, learn vue online, learn html online, learn css online, learn js online",
     author: `@iteachfrontend`,
+    domain: "https://iteachfrontend.com",
   },
   plugins: [
     `gatsby-plugin-sharp`,
