@@ -46,7 +46,7 @@ Below, is list of mostly commonly used HTML elements with their description
 | `<h1>-<h6>`    | Represents section headings. `<h1>` is the highest section level and `<h6>` is the lowest.            |
 | `<blockquote>` | Extended quotation                                                                                    |
 | `<div>`        | Generic container for content flow                                                                    |
-| `<div>`        | Generic inline container                                                                              |
+| `<span>`       | Generic inline container                                                                              |
 | `<hr>`         | Horizontal line to give break between paragraph level elements                                        |
 | `<p>`          | Represent a paragraph                                                                                 |
 | `<ul>`         | Unordered list                                                                                        |
