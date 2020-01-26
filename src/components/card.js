@@ -1,11 +1,22 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import Img from "gatsby-image"
 
-const Card = ({ icon, title, excerpt, displayCta, to, category }) => {
+const Card = ({
+  icon,
+  title,
+  excerpt,
+  displayCta,
+  to,
+  category,
+  featuredImgFluid,
+}) => {
+  console.log(`featuredImgFluid ${featuredImgFluid}`)
   return (
     <article className="article-card border-round-1">
       <Link to={to}>
+        {featuredImgFluid && <Img fluid={featuredImgFluid} />}
         <h3>{title}</h3>
         {icon && icon}
       </Link>
@@ -31,6 +42,7 @@ Card.propTypes = {
   displayCta: PropTypes.bool,
   to: PropTypes.string,
   category: PropTypes.string,
+  featuredImgFluid: PropTypes.object,
 }
 
 Card.defaultProps = {

@@ -8,7 +8,7 @@ const Subscribe = () => {
   }
 
   return (
-    <div class="subscription">
+    <div className="subscription">
       <img src="/logo_alt_text.png" alt="itechfrontend logo" />
       <p>Join our newsletter for developers!</p>
       <form
@@ -17,7 +17,7 @@ const Subscribe = () => {
         id="mc-embedded-subscribe-form"
         name="mc-embedded-subscribe-form"
         target="_blank"
-        novalidate
+        noValidate
       >
         <div id="mc_embed_signup_scroll">
           <input
@@ -35,7 +35,8 @@ const Subscribe = () => {
             type="text"
             name="b_ffbbcda2c9ac65b1b50bb5bff_2b4baba5da"
             tabIndex="-1"
-            value=""
+            value="..."
+            readOnly
           />
 
           <input
