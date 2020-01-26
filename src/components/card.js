@@ -12,7 +12,6 @@ const Card = ({
   category,
   featuredImgFluid,
 }) => {
-  console.log(`featuredImgFluid ${featuredImgFluid}`)
   return (
     <article className="article-card border-round-1">
       <Link to={to}>

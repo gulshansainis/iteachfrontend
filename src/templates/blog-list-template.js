@@ -17,7 +17,6 @@ export default class BlogList extends React.Component {
         <SEO title="Latest Articles On Frontend Development" />
         <h1>Latest Articles</h1>
         {posts.map(({ node }) => {
-          console.log(node.frontmatter)
           const { title, category, featuredImage } = node.frontmatter
           const featuredImgFluid = featuredImage
             ? featuredImage.childImageSharp.fluid
