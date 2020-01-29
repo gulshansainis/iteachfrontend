@@ -1,16 +1,16 @@
-import path from "path";
-import React from "react";
-import Helmet from "react-helmet";
-import { StaticQuery, graphql } from "gatsby";
-import PropTypes from "prop-types";
-import SchemaOrg from "./SchemaOrg";
+import path from "path"
+import React from "react"
+import Helmet from "react-helmet"
+import { StaticQuery, graphql } from "gatsby"
+import PropTypes from "prop-types"
+import SchemaOrg from "./SchemaOrg"
 
 const SEO = ({
   postData,
   frontmatter = {},
   postImage,
   isBlogPost,
-  activeCategory
+  activeCategory,
 }) => (
   <StaticQuery
     query={graphql`
@@ -22,6 +22,7 @@ const SEO = ({
             canonicalUrl
             image
             twitterUrl
+            twitterHandle
             fbAppID
             author {
               name
@@ -37,33 +38,33 @@ const SEO = ({
     `}
     render={({ site: { siteMetadata: seo } }) => {
       const postMeta =
-        frontmatter || postData.childMarkdownRemark.frontmatter || {};
+        frontmatter || postData.childMarkdownRemark.frontmatter || {}
 
       const title = (isBlogPost
         ? postMeta.title
         : activeCategory
         ? `Learn Modern ${activeCategory.toUpperCase()}`
         : frontmatter.title
-      ).concat(" | iTeachFrontend");
+      ).concat(" | iTeachFrontend")
 
       const description = isBlogPost
         ? postMeta.description
         : activeCategory
         ? `Learn ${activeCategory.toUpperCase()} from experts and take your knowledge to next level to harness the full potential of ${activeCategory.toUpperCase()}. Our simple and easy to follow tutorials and articles on ${activeCategory.toUpperCase()} will help you advance your skills from zero to hero level.`
-        : frontmatter.description;
+        : frontmatter.description
       const image = isBlogPost
         ? postImage
           ? `${seo.canonicalUrl}${postImage}`
           : seo.image
         : activeCategory
         ? `${seo.canonicalUrl}${path.sep}${activeCategory}-logo.svg`
-        : seo.image;
+        : seo.image
       const url = postMeta.slug
         ? `${seo.canonicalUrl}${path.sep}${postMeta.slug}`
         : activeCategory
         ? `${seo.canonicalUrl}${path.sep}learn${path.sep}${activeCategory}`
-        : seo.canonicalUrl;
-      const datePublished = isBlogPost ? postMeta.datePublished : false;
+        : seo.canonicalUrl
+      const datePublished = isBlogPost ? postMeta.datePublished : false
 
       return (
         <React.Fragment>
@@ -83,7 +84,8 @@ const SEO = ({
 
             {/* Twitter Card tags */}
             <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:creator" content={seo.twitterUrl} />
+            <meta name="twitter:site" content={seo.twitterHandle} />
+            <meta name="twitter:creator" content={seo.author.name} />
             <meta name="twitter:title" content={title} />
             <meta name="twitter:description" content={description} />
             <meta name="twitter:image" content={image} />
@@ -101,26 +103,26 @@ const SEO = ({
             defaultTitle={seo.title}
           />
         </React.Fragment>
-      );
+      )
     }}
   />
-);
+)
 
 SEO.propTypes = {
   isBlogPost: PropTypes.bool,
   postData: PropTypes.shape({
     childMarkdownRemark: PropTypes.shape({
       frontmatter: PropTypes.any,
-      excerpt: PropTypes.any
-    })
+      excerpt: PropTypes.any,
+    }),
   }),
-  postImage: PropTypes.string
-};
+  postImage: PropTypes.string,
+}
 
 SEO.defaultProps = {
   isBlogPost: false,
   postData: { childMarkdownRemark: {} },
-  postImage: null
-};
+  postImage: null,
+}
 
-export default SEO;
+export default SEO
