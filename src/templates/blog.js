@@ -1,31 +1,31 @@
-import React from "react";
-import { graphql } from "gatsby";
-import Img from "gatsby-image";
-import { css } from "@emotion/core";
-import Container from "../components/Container";
-import Hero from "../components/Hero";
-import SEO from "../components/SEO";
-import Layout from "../components/Layout";
-import Link from "../components/Link";
-import { bpMaxSM, bpMaxMD } from "../lib/breakpoints";
+import React from "react"
+import { graphql } from "gatsby"
+import Img from "gatsby-image"
+import { css } from "@emotion/core"
+import Container from "../components/container"
+import Hero from "../components/hero"
+import SEO from "../components/SEO"
+import Layout from "../components/layout"
+import Link from "../components/link"
+import { bpMaxSM, bpMaxMD } from "../lib/breakpoints"
 
 const Blog = ({
   data: { site, allMdx },
-  pageContext: { pagination, categories, activeCategory }
+  pageContext: { pagination, categories, activeCategory },
 }) => {
-  const { page, nextPagePath, previousPagePath } = pagination;
+  const { page, nextPagePath, previousPagePath } = pagination
 
   const posts = page
     .map(id => allMdx.edges.find(edge => edge.node.id === id))
-    .filter(post => post !== undefined);
+    .filter(post => post !== undefined)
 
   const frontmatter = {
     title: "Latest Frontend Development Articles",
     description:
       "Latest Frontend Development Articles. Advance your frontend skills - learn JavaScript, React, Vue & Angular from experts",
     slug: "articles",
-    datePublished: Date.now()
-  };
+    datePublished: Date.now(),
+  }
   return (
     <Layout site={site}>
       {activeCategory ? (
@@ -137,10 +137,10 @@ const Blog = ({
         />
       </Container>
     </Layout>
-  );
-};
+  )
+}
 
-export default Blog;
+export default Blog
 
 export const pageQuery = graphql`
   query {
@@ -179,4 +179,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`

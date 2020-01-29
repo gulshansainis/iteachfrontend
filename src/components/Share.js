@@ -1,8 +1,8 @@
-import React from 'react'
-import { css } from '@emotion/core'
-import { getTheme } from './Theming'
+import React from "react"
+import { css } from "@emotion/core"
+import { getTheme } from "./theming"
 
-import { TwitterShareButton, FacebookShareButton } from 'react-share'
+import { TwitterShareButton, FacebookShareButton } from "react-share"
 
 const Share = ({ url, title, twitterHandle }) => {
   const theme = getTheme()
@@ -38,14 +38,14 @@ const Share = ({ url, title, twitterHandle }) => {
       <TwitterShareButton
         url={url}
         quote={title}
-        via={twitterHandle.split('@').join('')}
+        via={twitterHandle.split("@").join("")}
       >
         Twitter
       </TwitterShareButton>
       <FacebookShareButton
         url={url}
         quote={title}
-        via={twitterHandle.split('@').join('')}
+        via={twitterHandle.split("@").join("")}
         css={css`
           cursor: pointer;
         `}

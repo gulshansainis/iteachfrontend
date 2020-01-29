@@ -1,6 +1,6 @@
-import { createTheming } from "@callstack/react-theme-provider";
-import { lighten } from "polished";
-import colors from "../lib/colors";
+import { createTheming } from "@callstack/react-theme-provider"
+import { lighten } from "polished"
+import colors from "../lib/colors"
 
 const themes = {
   default: {
@@ -11,8 +11,8 @@ const themes = {
       bodyBg: colors.gray,
       headerBg: colors.gray,
       link: colors.blue,
-      ...colors
-    }
+      ...colors,
+    },
   },
   dark: {
     themeName: "dark",
@@ -22,13 +22,13 @@ const themes = {
       bodyBg: lighten(0.05, colors.black),
       headerBg: lighten(0.05, colors.black),
       link: colors.white,
-      ...colors
-    }
-  }
-};
+      ...colors,
+    },
+  },
+}
 
 const { ThemeProvider, withTheme, useTheme: getTheme } = createTheming(
   themes.default
-);
+)
 
-export { ThemeProvider, withTheme, getTheme, themes, colors };
+export { ThemeProvider, withTheme, getTheme, themes, colors }

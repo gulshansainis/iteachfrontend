@@ -1,6 +1,6 @@
-import React from "react";
-import { css } from "@emotion/core";
-import { bpMaxSM } from "../lib/breakpoints";
+import React from "react"
+import { css } from "@emotion/core"
+import { bpMaxSM } from "../lib/breakpoints"
 
 const Container = props => {
   const {
@@ -8,7 +8,7 @@ const Container = props => {
     noHorizontalPadding = false,
     noVerticalPadding = false,
     ...restProps
-  } = props;
+  } = props
   return (
     <div
       css={css`
@@ -26,7 +26,7 @@ const Container = props => {
     >
       {props.children}
     </div>
-  );
-};
+  )
+}
 
-export default Container;
+export default Container

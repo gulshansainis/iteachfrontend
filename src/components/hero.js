@@ -1,14 +1,14 @@
-import React from "react";
+import React from "react"
 // import Link from './Link'
-import { getTheme } from "./Theming";
-import { css } from "@emotion/core";
-import Container from "../components/Container";
+import { getTheme } from "./theming"
+import { css } from "@emotion/core"
+import Container from "./container"
 // import { rhythm } from "../lib/typography";
-import Link from "./Link";
-import colors from "../lib/colors";
+import Link from "./link"
+import colors from "../lib/colors"
 
 const Hero = () => {
-  const theme = getTheme();
+  const theme = getTheme()
   return (
     <section
       css={css`
@@ -49,7 +49,7 @@ const Hero = () => {
               display: "flex",
               flexWrap: "wrap",
               justifyContent: "center",
-              alignItems: "center"
+              alignItems: "center",
             }}
           >
             <img
@@ -58,7 +58,7 @@ const Hero = () => {
                 width: "40px",
                 height: "40px",
                 marginRight: "10px",
-                marginBottom: "0px"
+                marginBottom: "0px",
               }}
               src="/images/tech/html-logo.svg"
             />{" "}
@@ -72,7 +72,7 @@ const Hero = () => {
               display: "flex",
               flexWrap: "wrap",
               justifyContent: "center",
-              alignItems: "center"
+              alignItems: "center",
             }}
           >
             <img
@@ -81,7 +81,7 @@ const Hero = () => {
                 width: "40px",
                 height: "40px",
                 marginRight: "10px",
-                marginBottom: "0px"
+                marginBottom: "0px",
               }}
               src="/images/tech/css-logo.svg"
             />{" "}
@@ -95,7 +95,7 @@ const Hero = () => {
               display: "flex",
               flexWrap: "wrap",
               justifyContent: "center",
-              alignItems: "center"
+              alignItems: "center",
             }}
           >
             <img
@@ -104,7 +104,7 @@ const Hero = () => {
                 width: "40px",
                 height: "40px",
                 marginRight: "10px",
-                marginBottom: "0px"
+                marginBottom: "0px",
               }}
               src="/images/tech/javascript-logo.svg"
             />{" "}
@@ -118,7 +118,7 @@ const Hero = () => {
               display: "flex",
               flexWrap: "wrap",
               justifyContent: "center",
-              alignItems: "center"
+              alignItems: "center",
             }}
           >
             <img
@@ -127,7 +127,7 @@ const Hero = () => {
                 width: "40px",
                 height: "40px",
                 marginRight: "10px",
-                marginBottom: "0px"
+                marginBottom: "0px",
               }}
               src="/images/tech/reactjs-logo.svg"
             />{" "}
@@ -142,7 +142,7 @@ const Hero = () => {
         `}
       />
     </section>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero

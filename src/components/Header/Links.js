@@ -1,10 +1,10 @@
-import React from "react";
-import { Link } from "gatsby";
-import { getTheme } from "../Theming";
-import ThemeToggler from "./ThemeToggler";
+import React from "react"
+import { Link } from "gatsby"
+import { getTheme } from "../theming"
+import ThemeToggler from "./themeToggler"
 
 export default () => {
-  const theme = getTheme();
+  const theme = getTheme()
   return (
     <React.Fragment>
       <Link
@@ -27,5 +27,5 @@ export default () => {
         themeName={theme.themeName}
       />
     </React.Fragment>
-  );
-};
+  )
+}

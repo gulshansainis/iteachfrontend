@@ -1,16 +1,16 @@
-import React, { Fragment, useState, useEffect } from "react";
-import Helmet from "react-helmet";
-import { graphql, useStaticQuery } from "gatsby";
-import { MDXProvider } from "@mdx-js/react";
-import { lighten } from "polished";
-import { Global, css } from "@emotion/core";
-import { ThemeProvider, themes } from "./Theming";
-import { bpMaxSM } from "../lib/breakpoints";
-import mdxComponents from "./mdx";
-import Header from "./Header/";
-import reset from "../lib/reset";
-import { fonts } from "../lib/typography";
-import Footer from "../components/Footer";
+import React, { Fragment, useState, useEffect } from "react"
+import Helmet from "react-helmet"
+import { graphql, useStaticQuery } from "gatsby"
+import { MDXProvider } from "@mdx-js/react"
+import { lighten } from "polished"
+import { Global, css } from "@emotion/core"
+import { ThemeProvider, themes } from "./theming"
+import { bpMaxSM } from "../lib/breakpoints"
+import mdxComponents from "./mdx"
+import Header from "./header"
+import reset from "../lib/reset"
+import { fonts } from "../lib/typography"
+import Footer from "./footer"
 
 const getGlobalStyles = theme => {
   return css`
@@ -127,28 +127,28 @@ const getGlobalStyles = theme => {
         border-radius: 5px;
       }
     }
-  `;
-};
+  `
+}
 
 export default ({
   site,
   frontmatter = {},
   children,
   noFooter,
-  noSubscribeForm
+  noSubscribeForm,
 }) => {
   const initializeTheme = () => {
     if (typeof window !== "undefined") {
-      return localStorage.getItem("theme") || "default";
+      return localStorage.getItem("theme") || "default"
     } else {
-      return "default";
+      return "default"
     }
-  };
+  }
 
   const {
     site: {
-      siteMetadata: { title, twitterUrl, githubUrl }
-    }
+      siteMetadata: { title, twitterUrl, githubUrl },
+    },
   } = useStaticQuery(graphql`
     query {
       site {
@@ -159,31 +159,31 @@ export default ({
         }
       }
     }
-  `);
+  `)
 
-  const [themeName, setTheme] = useState(initializeTheme);
+  const [themeName, setTheme] = useState(initializeTheme)
 
   useEffect(() => {
-    localStorage.setItem("theme", themeName);
-  }, [themeName]);
+    localStorage.setItem("theme", themeName)
+  }, [themeName])
 
-  const toggleTheme = name => setTheme(name);
+  const toggleTheme = name => setTheme(name)
   const theme = {
     ...themes[themeName],
-    toggleTheme: toggleTheme
-  };
+    toggleTheme: toggleTheme,
+  }
   const {
     description: siteDescription,
-    keywords: siteKeywords
-  } = site.siteMetadata;
+    keywords: siteKeywords,
+  } = site.siteMetadata
 
   const {
     keywords: frontmatterKeywords,
-    description: frontmatterDescription
-  } = frontmatter;
+    description: frontmatterDescription,
+  } = frontmatter
 
-  const keywords = (frontmatterKeywords || siteKeywords).join(", ");
-  const description = frontmatterDescription || siteDescription;
+  const keywords = (frontmatterKeywords || siteKeywords).join(", ")
+  const description = frontmatterDescription || siteDescription
 
   return (
     <ThemeProvider theme={theme}>
@@ -202,7 +202,7 @@ export default ({
             title={title}
             meta={[
               { name: "description", content: description },
-              { name: "keywords", content: keywords }
+              { name: "keywords", content: keywords },
             ]}
           >
             <html lang="en" />
@@ -223,8 +223,8 @@ export default ({
         </div>
       </Fragment>
     </ThemeProvider>
-  );
-};
+  )
+}
 
 export const siteQuery = graphql`
   fragment site on Site {
@@ -243,4 +243,4 @@ export const siteQuery = graphql`
       keywords
     }
   }
-`;
+`

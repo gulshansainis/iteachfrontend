@@ -1,15 +1,15 @@
-import React from "react";
-import { Link, StaticQuery, graphql } from "gatsby";
-import { css } from "@emotion/core";
-import { getTheme } from "../Theming";
-import { bpMaxSM } from "../../lib/breakpoints";
-import MobileMenu from "./MobileMenu";
-import Links from "./Links";
+import React from "react"
+import { Link, StaticQuery, graphql } from "gatsby"
+import { css } from "@emotion/core"
+import { getTheme } from "../theming"
+import { bpMaxSM } from "../../lib/breakpoints"
+import MobileMenu from "./mobileMenu"
+import Links from "./links"
 
-import Container from "../Container";
+import Container from "../container"
 
 const Header = ({ siteTitle }) => {
-  const theme = getTheme();
+  const theme = getTheme()
   return (
     <header
       css={css`
@@ -86,8 +86,8 @@ const Header = ({ siteTitle }) => {
         </nav>
       </Container>
     </header>
-  );
-};
+  )
+}
 
 const ConnectedHeader = props => (
   <StaticQuery
@@ -104,6 +104,6 @@ const ConnectedHeader = props => (
       <Header siteTitle={data.site.siteMetadata.title} {...props} />
     )}
   />
-);
+)
 
-export default ConnectedHeader;
+export default ConnectedHeader

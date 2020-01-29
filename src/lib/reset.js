@@ -1,6 +1,6 @@
-import { css } from '@emotion/core'
-import { getTheme } from '../components/Theming'
-import typography, { fonts } from '../lib/typography'
+import { css } from "@emotion/core"
+import { getTheme } from "../components/theming"
+import typography, { fonts } from "../lib/typography"
 
 const resetStyles = () => {
   const theme = getTheme()

@@ -1,25 +1,25 @@
-import React from "react";
-import Button from "./Button";
-import styled from "@emotion/styled";
-import { FiMoon, FiSun } from "react-icons/fi";
-import { getTheme } from "../Theming";
+import React from "react"
+import Button from "./button"
+import styled from "@emotion/styled"
+import { FiMoon, FiSun } from "react-icons/fi"
+import { getTheme } from "../theming"
 
 const DarkMode = styled(FiMoon)({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  margin: "0"
-});
+  margin: "0",
+})
 
 const DefaultMode = styled(FiSun)({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  margin: "0"
-});
+  margin: "0",
+})
 
 const ThemeToggler = ({ toggleTheme, themeName }) => {
-  const theme = getTheme();
+  const theme = getTheme()
   return (
     <Button
       css={{
@@ -40,9 +40,9 @@ const ThemeToggler = ({ toggleTheme, themeName }) => {
             background:
               theme.themeName === "default"
                 ? theme.colors.text
-                : theme.colors.black
-          }
-        }
+                : theme.colors.black,
+          },
+        },
       }}
       aria-label={
         themeName === "dark" ? "Switch to light mode" : "Switch to dark mode"
@@ -55,6 +55,6 @@ const ThemeToggler = ({ toggleTheme, themeName }) => {
         <DarkMode title="Switch to dark mode" />
       )}
     </Button>
-  );
-};
-export default ThemeToggler;
+  )
+}
+export default ThemeToggler

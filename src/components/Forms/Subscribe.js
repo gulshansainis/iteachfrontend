@@ -1,21 +1,21 @@
-import React from "react";
-import { Formik, Field, Form, ErrorMessage } from "formik";
-import * as Yup from "yup";
-import { css } from "@emotion/core";
-import { withTheme } from "../Theming";
-import { rhythm } from "../../lib/typography";
-import { bpMaxSM } from "../../lib/breakpoints";
-import Message from "../ConfirmMessage/Message";
-import { PleaseConfirmIllustration } from "../ConfirmMessage/Illustrations";
+import React from "react"
+import { Formik, Field, Form, ErrorMessage } from "formik"
+import * as Yup from "yup"
+import { css } from "@emotion/core"
+import { withTheme } from "../theming"
+import { rhythm } from "../../lib/typography"
+import { bpMaxSM } from "../../lib/breakpoints"
+import Message from "../confirmmessage/message"
+import { PleaseConfirmIllustration } from "../confirmmessage/illustrations"
 
-const FORM_ID = process.env.CONVERTKIT_SIGNUP_FORM;
+// const FORM_ID = process.env.CONVERTKIT_SIGNUP_FORM
 
 const SubscribeSchema = Yup.object().shape({
   EMAIL: Yup.string()
     .email("Invalid email address")
     .required("Required"),
-  first_name: Yup.string()
-});
+  first_name: Yup.string(),
+})
 
 const PostSubmissionMessage = ({ response }) => {
   return (
@@ -27,16 +27,16 @@ const PostSubmissionMessage = ({ response }) => {
           **Please check your inbox!**`}
       />
     </div>
-  );
-};
+  )
+}
 
 class SignUp extends React.Component {
   state = {
-    submitted: false
-  };
+    submitted: false,
+  }
 
   async handleSubmit(values) {
-    this.setState({ submitted: true });
+    this.setState({ submitted: true })
     try {
       const response = await fetch(
         `https://iteachfrontend.us4.list-manage.com/subscribe/post?u=ffbbcda2c9ac65b1b50bb5bff&amp;id=2b4baba5da`,
@@ -45,31 +45,31 @@ class SignUp extends React.Component {
           body: JSON.stringify(values, null, 2),
           headers: {
             Accept: "application/json",
-            "Content-Type": "application/json"
-          }
+            "Content-Type": "application/json",
+          },
         }
-      );
+      )
 
-      const responseJson = await response.json();
+      const responseJson = await response.json()
 
       this.setState({
         submitted: true,
         response: responseJson,
-        errorMessage: null
-      });
+        errorMessage: null,
+      })
     } catch (error) {
-      console.log(error);
+      console.log(error)
       this.setState({
         submitted: false,
-        errorMessage: "Something went wrong!"
-      });
+        errorMessage: "Something went wrong!",
+      })
     }
   }
 
   render() {
-    const { submitted, response, errorMessage } = this.state;
-    const { theme } = this.props;
-    const successful = response && response.status === "success";
+    const { submitted, response, errorMessage } = this.state
+    const { theme } = this.props
+    const successful = response && response.status === "success"
 
     return (
       <div>
@@ -87,7 +87,7 @@ class SignUp extends React.Component {
         <Formik
           initialValues={{
             EMAIL: "",
-            first_name: ""
+            first_name: "",
           }}
           validationSchema={SubscribeSchema}
           onSubmit={values => this.handleSubmit(values)}
@@ -196,8 +196,8 @@ class SignUp extends React.Component {
           )}
         />
       </div>
-    );
+    )
   }
 }
 
-export default withTheme(SignUp);
+export default withTheme(SignUp)

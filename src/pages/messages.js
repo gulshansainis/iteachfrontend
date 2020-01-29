@@ -1,12 +1,12 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
-import Message from '../components/ConfirmMessage/Message'
+import React from "react"
+import { graphql } from "gatsby"
+import Layout from "../components/layout"
+import Message from "../components/confirmmessage/message"
 import {
   PleaseConfirmIllustration,
   ThankYouIllustration,
   UnsubscribeIllustration,
-} from '../components/ConfirmMessage/Illustrations'
+} from "../components/confirmmessage/illustrations"
 
 export default ({ data: { site, allMdx, latestArticle } }) => {
   return (
@@ -16,7 +16,7 @@ export default ({ data: { site, allMdx, latestArticle } }) => {
           fullscreen
           illustration={PleaseConfirmIllustration}
           title={`Great, one last thing...`}
-          body={`We just sent you an email with the confirmation link. 
+          body={`We just sent you an email with the confirmation link.
           **Please check your inbox!**`}
         />
       </div>

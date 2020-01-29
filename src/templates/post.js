@@ -1,22 +1,22 @@
-import React from "react";
-import { graphql } from "gatsby";
-import Img from "gatsby-image";
-import { MDXRenderer } from "gatsby-plugin-mdx";
-import SEO from "../components/SEO";
-import { css } from "@emotion/core";
-import Container from "../components/Container";
-import Layout from "../components/Layout";
-import { fonts } from "../lib/typography";
-import Share from "../components/Share";
+import React from "react"
+import { graphql } from "gatsby"
+import Img from "gatsby-image"
+import { MDXRenderer } from "gatsby-plugin-mdx"
+import SEO from "../components/SEO"
+import { css } from "@emotion/core"
+import Container from "../components/container"
+import Layout from "../components/layout"
+import { fonts } from "../lib/typography"
+import Share from "../components/share"
 
 export default function Post({
   data: { site, mdx },
-  pageContext: { next, prev }
+  pageContext: { next, prev },
 }) {
   // const author = mdx.frontmatter.author || site.siteMetadata.author.name;
-  const date = mdx.frontmatter.date;
-  const title = mdx.frontmatter.title;
-  const banner = mdx.frontmatter.banner;
+  const date = mdx.frontmatter.date
+  const title = mdx.frontmatter.title
+  const banner = mdx.frontmatter.banner
 
   return (
     <Layout site={site} frontmatter={mdx.frontmatter}>
@@ -82,7 +82,7 @@ export default function Post({
         <br />
       </Container>
     </Layout>
-  );
+  )
 }
 
 export const pageQuery = graphql`
@@ -109,4 +109,4 @@ export const pageQuery = graphql`
       body
     }
   }
-`;
+`
