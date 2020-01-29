@@ -1,11 +1,17 @@
 ---
 slug: what-are-vendor-prefixes
 date: 2020-01-26
-title: 'What Are Vendor Prefixes?'
-description: 'Browser vendors introduce experimental features or nonstandard CSS properties into their browsers.'
-categories: ['css']
-keywords: ['what are vendor prefixes', 'use of vendor prefixes', 'why vendor prefixes are used', 'why vendor prefixes are needed']
-banner: './images/what-are-vendor-prefixes.png'
+title: "What Are Vendor Prefixes?"
+description: "Browser vendors introduce experimental features or nonstandard CSS properties into their browsers."
+categories: ["css"]
+keywords:
+  [
+    "what are vendor prefixes",
+    "use of vendor prefixes",
+    "why vendor prefixes are used",
+    "why vendor prefixes are needed",
+  ]
+banner: "./images/what-are-vendor-prefixes.jpg"
 published: true
 ---
 
