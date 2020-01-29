@@ -1,144 +1,157 @@
+const path = require('path')
+const config = require('./config/website')
+const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
 module.exports = {
+  pathPrefix: config.pathPrefix,
   siteMetadata: {
-    title: `iTeachFrontend`,
-    description: `Advance your frontend skills - learn JavaScript, React, Vue & Angular from experts`,
-    keywords:
-      "learn frontend development, learn html, learn css, learn js, learn ReactJs, learn angular, learn vue, learn frontend development online, learn ReactJs online, learn angular online, learn vue online, learn html online, learn css online, learn js online",
-    author: `@iteachfrontend`,
-    domain: "https://iteachfrontend.com",
+    siteUrl: config.siteUrl + pathPrefix,
+    title: config.siteTitle,
+    description: config.siteDescription,
+    keywords: ['learn frontend development', 'learn html', 'learn css', 'learn js', 'learn ReactJs', 'learn frontend development online', 'learn ReactJs online', 'learn html online', 'learn css online', 'learn js online'],
+    canonicalUrl: config.siteUrl,
+    twitterUrl: config.twitterUrl,
+    twitterHandle: config.twitterHandle,
+    fbAppID: config.fbAppID,
+    githubUrl: config.githubUrl,
+    githubHandle: config.githubHandle,
+    image: config.siteLogo,
+    author: {
+      name: config.author,
+      minibio: `
+        <strong>egghead</strong> is the premier place on the internet for
+        experienced developers to enhance their skills and stay current
+        in the fast-faced field of web development.
+      `,
+    },
+    organization: {
+      name: config.organization,
+      url: config.siteUrl,
+      logo: config.siteLogo,
+    },
   },
   plugins: [
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-react-helmet`,
+    // {
+    //   resolve: `@eggheadio/gatsby-theme-egghead-blog`,
+    //   options: {contentBlog: 'content/blog'},
+    // },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: `gatsby-plugin-page-creator`,
       options: {
-        name: `markdown-pages`,
-        path: `${__dirname}/articles`,
+        path: path.join(__dirname, 'src', 'pages'),
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `markdown-pages`,
-        path: `${__dirname}/articles/images`,
+        path: 'content/blog',
+        name: 'content/blog',
       },
     },
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        plugins: [
+        extensions: ['.mdx', '.md', '.markdown'],
+        gatsbyRemarkPlugins: [
           {
-            resolve: `gatsby-remark-images`,
+            resolve: 'gatsby-remark-images',
             options: {
-              // It's important to specify the maxWidth (in pixels) of
-              // the content container as this plugin uses this as the
-              // base for generating different widths of each image.
-              maxWidth: 1080,
-            },
-          },
-          {
-            resolve: `gatsby-remark-prismjs`,
-            options: {
-              // Class prefix for <pre> tags containing syntax highlighting;
-              // defaults to 'language-' (e.g. <pre class="language-js">).
-              // If your site loads Prism into the browser at runtime,
-              // (e.g. for use with libraries like react-live),
-              // you may use this to prevent Prism from re-processing syntax.
-              // This is an uncommon use-case though;
-              // If you're unsure, it's best to use the default value.
-              classPrefix: "language-",
-              // This is used to allow setting a language for inline code
-              // (i.e. single backticks) by creating a separator.
-              // This separator is a string and will do no white-space
-              // stripping.
-              // A suggested value for English speakers is the non-ascii
-              // character '›'.
-              inlineCodeMarker: null,
-              // This lets you set up language aliases.  For example,
-              // setting this to '{ sh: "bash" }' will let you use
-              // the language "sh" which will highlight using the
-              // bash highlighter.
-              aliases: {},
-              // This toggles the display of line numbers globally alongside the code.
-              // To use it, add the following line in gatsby-browser.js
-              // right after importing the prism color scheme:
-              //  require("prismjs/plugins/line-numbers/prism-line-numbers.css")
-              // Defaults to false.
-              // If you wish to only show line numbers on certain code blocks,
-              // leave false and use the {numberLines: true} syntax below
-              showLineNumbers: false,
-              // If setting this to true, the parser won't handle and highlight inline
-              // code used in markdown i.e. single backtick code like `this`.
-              noInlineHighlight: false,
-              // This adds a new language definition to Prism or extend an already
-              // existing language definition. More details on this option can be
-              // found under the header "Add new language definition or extend an
-              // existing language" below.
-              languageExtensions: [
-                {
-                  language: "superscript",
-                  extend: "javascript",
-                  definition: {
-                    superscript_types: /(SuperType)/,
-                  },
-                  insertBefore: {
-                    function: {
-                      superscript_keywords: /(superif|superelse)/,
-                    },
-                  },
-                },
-              ],
-              // Customize the prompt used in shell output
-              // Values below are default
-              prompt: {
-                user: "root",
-                host: "localhost",
-                global: false,
-              },
-              // By default the HTML entities <>&'" are escaped.
-              // Add additional HTML escapes by providing a mapping
-              // of HTML entities and their escape value IE: { '}': '&#123;' }
-              escapeEntities: {},
+              backgroundColor: '#fafafa',
+              maxWidth: 1035,
             },
           },
         ],
       },
     },
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-emotion',
+    'gatsby-plugin-catch-links',
+    'gatsby-plugin-react-helmet',
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: `gatsby-plugin-feed`,
       options: {
-        name: "iteachfrontend",
-        short_name: "iteachfrontend",
-        start_url: "/",
-        background_color: "#6b37bf",
-        theme_color: "#6b37bf",
-        // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
-        // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
-        display: "standalone",
-        icon: "src/images/icon.png", // This path is relative to the root of the site.
-        // An optional attribute which provides support for CORS check.
-        // If you do not provide a crossOrigin option, it will skip CORS for manifest.
-        // Any invalid keyword or empty string defaults to `anonymous`
-        crossOrigin: `use-credentials`,
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMdx } }) => {
+              return allMdx.edges.map(edge => {
+                return Object.assign({}, edge.node.frontmatter, {
+                  description: edge.node.excerpt,
+                  date: edge.node.fields.date,
+                  url: site.siteMetadata.siteUrl + '/' + edge.node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + '/' + edge.node.fields.slug,
+                })
+              })
+            },
+            query: `
+              {
+                allMdx(
+                  limit: 1000,
+                  filter: { frontmatter: { published: { ne: false } } }
+                  sort: { order: DESC, fields: [frontmatter___date] }
+                ) {
+                  edges {
+                    node {
+                      excerpt(pruneLength: 250)
+                      fields {
+                        slug
+                        date
+                      }
+                      frontmatter {
+                        title
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: '/rss.xml',
+            title: 'Blog RSS Feed',
+          },
+        ],
       },
     },
     {
-      resolve: `gatsby-plugin-offline`,
+      resolve: `gatsby-plugin-typography`,
       options: {
-        // precachePages lets you specify pages whose resources should be precached
-        // by the service worker, using an array of globs. For example:
-        // precachePages: [`/about-us/`, `/projects/*`],
+        pathToConfigModule: require.resolve(`./src/lib/typography`),
       },
     },
     {
-      resolve: "gatsby-plugin-react-svg",
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        rule: {
-          include: /src\/images/, // See below to configure properly
-        },
+        name: config.siteTitle,
+        short_name: config.siteTitleShort,
+        description: config.siteDescription,
+        start_url: config.pathPrefix,
+        background_color: config.backgroundColor,
+        theme_color: config.themeColor,
+        display: 'standalone',
+        icons: [
+          {
+            src: '/android-chrome-192x192.png',
+            sizes: '192x192',
+            type: 'image/png',
+          },
+          {
+            src: '/android-chrome-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+          },
+        ],
       },
     },
+    'gatsby-plugin-offline',
   ],
 }
