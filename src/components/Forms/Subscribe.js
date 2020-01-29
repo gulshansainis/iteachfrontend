@@ -1,203 +1,134 @@
-import React from "react";
-import { Formik, Field, Form, ErrorMessage } from "formik";
-import * as Yup from "yup";
-import { css } from "@emotion/core";
-import { withTheme } from "../Theming";
-import { rhythm } from "../../lib/typography";
-import { bpMaxSM } from "../../lib/breakpoints";
-import Message from "../ConfirmMessage/Message";
-import { PleaseConfirmIllustration } from "../ConfirmMessage/Illustrations";
-
-const FORM_ID = process.env.CONVERTKIT_SIGNUP_FORM;
-
-const SubscribeSchema = Yup.object().shape({
-  EMAIL: Yup.string()
-    .email("Invalid email address")
-    .required("Required"),
-  first_name: Yup.string()
-});
-
-const PostSubmissionMessage = ({ response }) => {
-  return (
-    <div>
-      <Message
-        illustration={PleaseConfirmIllustration}
-        title={`Great, one last thing...`}
-        body={`I just sent you an email with the confirmation link.
-          **Please check your inbox!**`}
-      />
-    </div>
-  );
-};
+import React from "react"
+import { css } from "@emotion/core"
+import { withTheme } from "../Theming"
+import { rhythm } from "../../lib/typography"
+import { bpMaxSM } from "../../lib/breakpoints"
 
 class SignUp extends React.Component {
-  state = {
-    submitted: false
-  };
-
-  async handleSubmit(values) {
-    this.setState({ submitted: true });
-    try {
-      const response = await fetch(
-        `https://iteachfrontend.us4.list-manage.com/subscribe/post?u=ffbbcda2c9ac65b1b50bb5bff&amp;id=2b4baba5da`,
-        {
-          method: "post",
-          body: JSON.stringify(values, null, 2),
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json"
-          }
-        }
-      );
-
-      const responseJson = await response.json();
-
-      this.setState({
-        submitted: true,
-        response: responseJson,
-        errorMessage: null
-      });
-    } catch (error) {
-      console.log(error);
-      this.setState({
-        submitted: false,
-        errorMessage: "Something went wrong!"
-      });
-    }
+  constructor(props) {
+    super(props)
+    this.state = { first_name: "", email: "" }
   }
 
   render() {
-    const { submitted, response, errorMessage } = this.state;
-    const { theme } = this.props;
-    const successful = response && response.status === "success";
+    const { theme } = this.props
 
     return (
       <div>
-        {!successful && (
-          <h2
-            css={css`
-              margin-bottom: ${rhythm(1)};
-              margin-top: 0;
-            `}
+        <h2
+          css={css`
+            margin-bottom: ${rhythm(1)};
+            margin-top: 0;
+          `}
+        >
+          Join the Newsletter
+        </h2>
+        <form
+          action="https://iteachfrontend.us4.list-manage.com/subscribe/post?u=ffbbcda2c9ac65b1b50bb5bff&amp;id=2b4baba5da"
+          method="post"
+          id="mc-embedded-subscribe-form"
+          name="mc-embedded-subscribe-form"
+          className="validate"
+          css={css`
+            display: flex;
+            align-items: flex-end;
+            button {
+              margin-left: 10px;
+              font-weight: bold;
+              color: ${theme.colors.text};
+            }
+            .field-error {
+              display: block;
+              color: ${theme.colors.red};
+              font-size: 80%;
+            }
+            input,
+            label {
+              width: 100%;
+            }
+            ${bpMaxSM} {
+              flex-direction: column;
+              align-items: flex-start;
+              width: auto;
+              label,
+              input {
+                margin: 5px 0 0 0 !important;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+              }
+              button {
+                margin: 20px 0 0 0;
+              }
+            }
+          `}
+          target="_blank"
+          noValidate
+        >
+          <label htmlFor="mce-FIRST_NAME">
+            First Name
+            <input
+              id="mce-FIRST_NAME"
+              type="text"
+              value={this.state.first_name}
+              name="FIRST_NAME"
+              placeholder="Jane"
+              aria-label="your first name"
+              aria-required="true"
+              onChange={e => {
+                this.setState({ first_name: e.target.value })
+              }}
+              required
+            />
+          </label>
+          <label htmlFor="mce-EMAIL">
+            Email
+            <input
+              id="mce-EMAIL"
+              type="email"
+              value={this.state.email}
+              name="EMAIL"
+              aria-label="your email address"
+              aria-required="true"
+              placeholder="jane@acme.com"
+              onChange={e => {
+                this.setState({ email: e.target.value })
+              }}
+              required
+            />
+          </label>
+          <div
+            style={{ position: "absolute", left: "-5000px" }}
+            aria-hidden="true"
           >
-            Join the Newsletter
-          </h2>
-        )}
-
-        <Formik
-          initialValues={{
-            EMAIL: "",
-            first_name: ""
-          }}
-          validationSchema={SubscribeSchema}
-          onSubmit={values => this.handleSubmit(values)}
-          render={({ errors, touched, isSubmitting }) => (
-            <>
-              {!successful && (
-                <Form
-                  css={css`
-                    display: flex;
-                    align-items: flex-end;
-                    button {
-                      margin-left: 10px;
-                    }
-                    .field-error {
-                      display: block;
-                      color: ${theme.colors.red};
-                      font-size: 80%;
-                    }
-                    input,
-                    label {
-                      width: 100%;
-                    }
-                    ${bpMaxSM} {
-                      flex-direction: column;
-                      align-items: flex-start;
-                      width: auto;
-                      label,
-                      input {
-                        margin: 5px 0 0 0 !important;
-                        width: 100%;
-                        display: flex;
-                        flex-direction: column;
-                      }
-                      button {
-                        margin: 20px 0 0 0;
-                      }
-                    }
-                  `}
-                >
-                  <label htmlFor="first_name">
-                    <div
-                      css={css`
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: flex-end;
-                      `}
-                    >
-                      First Name
-                      <ErrorMessage
-                        name="first_name"
-                        component="span"
-                        className="field-error"
-                      />
-                    </div>
-                    <Field
-                      aria-label="your first name"
-                      aria-required="false"
-                      name="first_name"
-                      placeholder="Jane"
-                      type="text"
-                    />
-                  </label>
-                  <label
-                    htmlFor="email"
-                    css={css`
-                      margin-left: 10px;
-                    `}
-                  >
-                    <div
-                      css={css`
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: flex-end;
-                      `}
-                    >
-                      Email
-                      <ErrorMessage
-                        name="EMAIL"
-                        component="span"
-                        className="field-error"
-                      />
-                    </div>
-                    <Field
-                      aria-label="your email address"
-                      aria-required="true"
-                      name="EMAIL"
-                      placeholder="jane@acme.com"
-                      type="email"
-                    />
-                  </label>
-                  <button
-                    data-element="submit"
-                    type="submit"
-                    disabled={isSubmitting}
-                  >
-                    {!isSubmitting && "Submit"}
-                    {isSubmitting && "Submitting..."}
-                  </button>
-                </Form>
-              )}
-              {submitted && !isSubmitting && (
-                <PostSubmissionMessage response={response} />
-              )}
-              {errorMessage && <div>{errorMessage}</div>}
-            </>
-          )}
-        />
+            <input
+              type="text"
+              name="b_ffbbcda2c9ac65b1b50bb5bff_2b4baba5da"
+              tabIndex="-1"
+              value=""
+              readOnly
+            />
+          </div>
+          <button
+            type="submit"
+            onSubmit={() => {
+              this.setState({ first_name: "", email: "" })
+            }}
+          >
+            Subscribe
+          </button>
+        </form>
+        <p
+          css={css`
+            margin-top: ${rhythm(1)};
+            margin-bottom: 0;
+          `}
+        >
+          <i>No spam, I hate it more than you do.</i>
+        </p>
       </div>
-    );
+    )
   }
 }
 
-export default withTheme(SignUp);
+export default withTheme(SignUp)
