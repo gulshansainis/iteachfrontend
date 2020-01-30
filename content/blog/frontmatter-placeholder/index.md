@@ -13,3 +13,15 @@ redirects:
 ---
 
 This exists to populate GraphQL fields and avoid null errors. It should contain all of the available frontmatter.
+
+## Overview
+
+## Concept
+
+## Example
+
+## Explanation
+
+## You try it
+
+## Summary
