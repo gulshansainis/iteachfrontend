@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import { css } from "@emotion/core";
-import Container from "../Container";
+import React, { useState } from "react"
+import { css } from "@emotion/core"
+import Container from "../Container"
 
-import { bpMaxSM } from "../../lib/breakpoints";
+import { bpMaxSM } from "../../lib/breakpoints"
 
-import { getTheme } from "../Theming";
+import { getTheme } from "../Theming"
 
 const Toggle = ({ children }) => {
-  const [isToggledOn, setToggle] = useState(false);
-  const toggle = () => setToggle(!isToggledOn);
-  const theme = getTheme();
-  const color = theme.colors.text;
+  const [isToggledOn, setToggle] = useState(false)
+  const toggle = () => setToggle(!isToggledOn)
+  const theme = getTheme()
+  const color = theme.colors.text
 
   return (
     <div
@@ -120,7 +120,7 @@ const Toggle = ({ children }) => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Toggle;
+export default Toggle

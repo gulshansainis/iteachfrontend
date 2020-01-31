@@ -43,7 +43,7 @@
     "gatsby-plugin-manifest": "^2.2.40",
     "gatsby-plugin-mdx": "^1.0.69",
     "gatsby-plugin-meta-redirect": "^1.1.1",
-    "gatsby-plugin-offline": "^2.2.4",
+    "gatsby-plugin-offline": "latest",
     "gatsby-plugin-page-creator": "^2.1.39",
     "gatsby-plugin-react-helmet": "^3.1.2",
     "gatsby-plugin-sharp": "^2.4.4",
