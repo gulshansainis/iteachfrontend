@@ -42,7 +42,7 @@ const Header = ({ siteTitle }) => {
           >
             <img
               alt={siteTitle}
-              style={{ marginBottom: "0", width: "250px", height: "auto" }}
+              style={{ marginBottom: "0", width: "200px", height: "auto" }}
               src="/images/iteachfrontend.svg"
             />
           </Link>
