@@ -1,9 +1,9 @@
-import React from "react";
-import { css } from "@emotion/core";
-import { bpMaxSM } from "../lib/breakpoints";
-import SubscribeForm from "./Forms/Subscribe";
-import Social from "./Social";
-import Container from "./Container";
+import React from "react"
+import { css } from "@emotion/core"
+import { bpMaxSM } from "../lib/breakpoints"
+import SubscribeForm from "./Forms/Subscribe"
+import Social from "./Social"
+import Container from "./Container"
 
 const Footer = ({ organization, noSubscribeForm, twitterUrl, githubUrl }) => (
   <footer>
@@ -45,6 +45,6 @@ const Footer = ({ organization, noSubscribeForm, twitterUrl, githubUrl }) => (
       </div>
     </Container>
   </footer>
-);
+)
 
-export default Footer;
+export default Footer

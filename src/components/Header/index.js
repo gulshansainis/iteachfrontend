@@ -1,15 +1,15 @@
-import React from "react";
-import { Link, StaticQuery, graphql } from "gatsby";
-import { css } from "@emotion/core";
-import { getTheme } from "../Theming";
-import { bpMaxSM } from "../../lib/breakpoints";
-import MobileMenu from "./MobileMenu";
-import Links from "./Links";
+import React from "react"
+import { Link, StaticQuery, graphql } from "gatsby"
+import { css } from "@emotion/core"
+import { getTheme } from "../Theming"
+import { bpMaxSM } from "../../lib/breakpoints"
+import MobileMenu from "./MobileMenu"
+import Links from "./Links"
 
-import Container from "../Container";
+import Container from "../Container"
 
 const Header = ({ siteTitle }) => {
-  const theme = getTheme();
+  const theme = getTheme()
   return (
     <header
       css={css`
@@ -42,8 +42,8 @@ const Header = ({ siteTitle }) => {
           >
             <img
               alt={siteTitle}
-              style={{ marginBottom: "0", width: "250px" }}
-              src="/images/logo_alt_text.svg"
+              style={{ marginBottom: "0", width: "250px", height: "auto" }}
+              src="/images/iteachfrontend.svg"
             />
           </Link>
           <div
@@ -86,8 +86,8 @@ const Header = ({ siteTitle }) => {
         </nav>
       </Container>
     </header>
-  );
-};
+  )
+}
 
 const ConnectedHeader = props => (
   <StaticQuery
@@ -104,6 +104,6 @@ const ConnectedHeader = props => (
       <Header siteTitle={data.site.siteMetadata.title} {...props} />
     )}
   />
-);
+)
 
-export default ConnectedHeader;
+export default ConnectedHeader
