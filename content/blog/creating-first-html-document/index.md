@@ -28,15 +28,15 @@ Before, we deep dive into the HTML document structure, we should understand the 
 <p>This is a pragraph</p>
 ```
 
-`<p>` in above example is starting tag and `</p>` is ending tag.
+`<p>` in the above example is starting tag and `</p>` is the ending tag.
 
-In additon to two-sided element tag we also have **one-sided element** tag also known as empty elements. These elements are either used for non textual content such as images or contain directives to the browser about how the page should be treated. For example, the following code marks a image element
+In addition to a two-sided element tag we also have **one-sided element** tag, also known as empty elements. These elements are either used for non-textual content such as images or contain directives to the browser about how the page should be treated. For example, the following code marks an image element
 
 ```markup
 <img src="/path/to/image.jpg" alt="my image" />
 ```
 
-Another, example for **one-sided element** is `<br/>` element that is used to put line break between content
+Another, example for **one-sided element** is `<br/>` element that is used to put a line break between content
 
 <Codepen id="yLymEvP"/>
 
@@ -65,9 +65,9 @@ Now, we have a basic understanding of what element tag lets explore how these el
 ```
 
 - `<!DOCTYPE html>`: The very first line of HTML document should start with the doctype declaration. The [doctype](/what-is-html-5-doctype) appears just above `<html>` tag, at the very start of each HTML document, which is a processing instruction indicating the markup language used in the document. The declaration is used in HTML5 to distinguish between a standards-compliant parsing mode and so-called quirks parsing mode.
-- `<html>`: The root element of HTML document. `head` and `body` are the only valid children of the `html` element. `lang="en-US"` is attribute of `html` element and is used to set the primary language of the document.
+- `<html>`: The root element of HTML document. `head` and `body` are the only valid children of the `html` element. `lang="en-US"` is an attribute of `html` element and is used to set the primary language of the document.
 - `<head>`: The `head` section of HTML document is not displayed in the web browser however, it contains important meta-information about the document such as the page title, links to CSS and JavaScript files, keywords and description that help search engine to display relevant content, on user search. The `<meta>`, `<title>`, `<link>`, `<script>` and `<style>` are valid elements that could be nested inside the `<head>` element. In the above example, we have two child elements - first is `<meta charset="utf-8">` and second is `<title>My First HTML page</title>`
-- `<body>`: The visible content on the page is defined inside `<body>` tag. Headings, paragraph, images, links, videos, audio content etc. are all defined inside the body element. Within the `<body>` element of this file, we have a high-level heading `<h1>` and a paragaph `<p>`.
+- `<body>`: The visible content on the page is defined inside `<body>` tag. Headings, paragraphs, images, links, videos, audio content, etc. are all defined inside the body element. Within the `<body>` element of this file, we have a high-level heading `<h1>` and a paragraph `<p>`.
 
 ## Helpful links
 
