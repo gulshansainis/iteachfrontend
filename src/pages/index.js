@@ -1,17 +1,17 @@
-import React from "react";
-import { graphql } from "gatsby";
-import { css } from "@emotion/core";
+import React from "react"
+import { graphql } from "gatsby"
+import { css } from "@emotion/core"
 // import styled from "@emotion/styled";
-import Hero from "../components/Hero";
-import Layout from "../components/Layout";
-import Link from "../components/Link";
-import { getTheme } from "../components/Theming";
-import Container from "../components/Container";
-import { rhythm } from "../lib/typography";
-import { bpMaxSM, bpMaxMD } from "../lib/breakpoints";
+import Hero from "../components/Hero"
+import Layout from "../components/Layout"
+import Link from "../components/Link"
+import { getTheme } from "../components/Theming"
+import Container from "../components/Container"
+import { rhythm } from "../lib/typography"
+import { bpMaxSM, bpMaxMD } from "../lib/breakpoints"
 
 export default function Index({ data: { site, allMdx } }) {
-  const theme = getTheme();
+  const theme = getTheme()
   return (
     <Layout site={site}>
       <Hero />
@@ -59,8 +59,8 @@ export default function Index({ data: { site, allMdx } }) {
                 marginBottom: rhythm(0.3),
                 transition: "all 150ms ease",
                 ":hover": {
-                  color: theme.colors.primary
-                }
+                  color: theme.colors.primary,
+                },
               })}
             >
               <Link
@@ -108,7 +108,7 @@ export default function Index({ data: { site, allMdx } }) {
         <hr />
       </Container>
     </Layout>
-  );
+  )
 }
 
 export const pageQuery = graphql`
@@ -157,4 +157,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`

@@ -1,46 +1,71 @@
-import Typography from 'typography'
-import '../fonts/fonts.css'
+import Typography from "typography"
+import "../fonts/fonts.css"
 
 export const fonts = {
-  regular: 'Inter UI Regular',
-  regularItalic: 'Inter UI Regular Italic',
-  semibold: 'Inter UI Semibold',
-  semiboldItalic: 'Inter UI Semibold Italic',
-  bold: 'Inter UI Bold',
-  boldItalic: 'Inter UI Bold Italic',
+  regular: "Inter UI Regular",
+  regularItalic: "Inter UI Regular Italic",
+  semibold: "Inter UI Semibold",
+  semiboldItalic: "Inter UI Semibold Italic",
+  bold: "Inter UI Bold",
+  boldItalic: "Inter UI Bold Italic",
 }
 
+const fontSize = 18
+
 const typography = new Typography({
-  baseFontSize: '18px',
-  baseLineHeight: 1.55,
-  headerLineHeight: 1.4,
-  headerFontFamily: [fonts.bold, 'sans-serif'],
-  bodyFontFamily: [fonts.regular, 'sans-serif'],
-  headerColor: 'hsla(0,0%,0%,0.9)',
-  bodyColor: 'hsla(0,0%,0%,0.8)',
+  baseFontSize: `${fontSize}px`,
+  baseLineHeight: "1.5em",
+  headerFontFamily: [fonts.bold, "sans-serif"],
+  bodyFontFamily: [fonts.regular, "sans-serif"],
+  headerColor: "hsla(0,0%,0%,0.9)",
+  bodyColor: "hsla(0,0%,0%,0.8)",
 
   overrideStyles: ({ rhythm }) => ({
     h1: {
-      color: 'hsla(0,0%,0%,0.75)',
+      color: "hsla(0,0%,0%,0.75)",
+      fontSize: `${Math.round(fontSize * 1.8)}px`,
+      marginBottom: "0.75em",
     },
     h2: {
-      color: 'hsla(0,0%,0%,0.775)',
+      color: "hsla(0,0%,0%,0.775)",
+      fontSize: `${Math.round(fontSize * 1.35)}px`,
+      lineHeight: 1.2,
+      marginBottom: "0.75em",
     },
     h3: {
-      color: 'hsla(0,0%,0%,0.8)',
+      color: "hsla(0,0%,0%,0.8)",
+      fontSize: `${Math.round(fontSize * 1.15)}px`,
+      lineHeight: 1.3,
+      marginBottom: "1em",
     },
-    'h1,h2,h3,h4,h5,h6': {
-      lineHeight: 1,
-    },
-    'h1,h2,h3,h4': {
+    h4: {
+      fontSize: `${Math.round(fontSize * 1)}px`,
       lineHeight: 1.25,
-      marginTop: rhythm(1),
-      marginBottom: rhythm(1 / 2),
+      marginBottom: "1.5em",
+    },
+    h5: {
+      fontSize: `${Math.round(fontSize * 0.9)}px`,
+      marginBottom: "1.5em",
+    },
+    h6: {
+      fontSize: `${Math.round(fontSize * 0.8)}px`,
+      marginBottom: "1.5em",
+    },
+    p: {
+      fontSize: `${fontSize}px`,
+    },
+    ul: {
+      fontSize: `${fontSize}px`,
+      marginBottom: "1.5em",
+    },
+    li: {
+      fontSize: `${fontSize}px`,
+      lineHeight: 1.5,
     },
   }),
 })
 // Hot reload typography in development.
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV !== "production") {
   typography.injectStyles()
 }
 

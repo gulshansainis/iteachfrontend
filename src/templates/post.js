@@ -29,6 +29,12 @@ export default function Post({
         css={css`
           width: 100%;
           display: flex;
+          code {
+            background: #f0f0f0;
+            color: #ef3b7d;
+            border-radius: 2px;
+            padding: 1px 6px;
+          }
         `}
       >
         <Container>

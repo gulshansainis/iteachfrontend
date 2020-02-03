@@ -15,6 +15,8 @@ banner: "./images/what-are-vendor-prefixes.jpg"
 published: true
 ---
 
+import Codepen from 'components/Codepen'
+
 Browser vendors introduce experimental features or nonstandard CSS properties into their browsers. They do this by prefixing property names with strings that are recognized by their browser engine. When the browser scans the document and finds CSS property prefixed with the string known to the underlying engine it applies it to the current document otherwise it ignores the property. This allows browser vendors to introduce new features while the specifications are missing or immature.
 
 ## CSS Vendor Prefixes
@@ -35,12 +37,9 @@ Browser vendors introduce experimental features or nonstandard CSS properties in
 
 If your current browser is Firefox you will see vertical progress bar whereas if you open this example in Chrome you will see the horizontal progress bar
 
-<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="html,result" data-user="gulshansainis" data-slug-hash="povYYON" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Example - Browser Vendor Prefixes ">
-  <span>See the Pen <a href="https://codepen.io/gulshansainis/pen/povYYON">
-  Example - Browser Vendor Prefixes </a> by Gulshan Saini (<a href="https://codepen.io/gulshansainis">@gulshansainis</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<Codepen id="povYYON"/>
+
+### Visual comparison Chrome(left) and Firefox(right) browsers
 
 ![vendor prefix example](./images/what-are-vendor-prefixes-comparison.png "Comparison Chrome vs Firefox")
 
