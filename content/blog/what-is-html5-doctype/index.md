@@ -28,3 +28,11 @@ We will be just talking about HTML5 doctypes here as, it is latest and backward-
 ## Is doctype mandatory
 
 Doctype declaration is optional, but it would be useful for preventing browser "quirks mode". Doctype tells browser to render the page in "standards mode". The difference between quirks mode and standards mode can mean the difference between a nicely laid-out page and a confusing mess, so, as a result, you should always put your HTML5 file in standards mode by including the doctype.
+
+## Summary
+
+The main conclusion to draw from this article is that you should start all your HTML documents (i.e. anything that gets served as text/html) with `<!DOCTYPE html>` as the first thing in the source.
+
+## Helpful links
+
+- [Detailed explanation of Quirks, Standard and Almost Standard mode](https://hsivonen.fi/doctype/)
