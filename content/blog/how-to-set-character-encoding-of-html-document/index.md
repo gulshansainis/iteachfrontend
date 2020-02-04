@@ -16,7 +16,7 @@ published: true
 banner: "./banner.jpg"
 ---
 
-The first line you need inside the head i.e. `<meta charset="utf-8">` is the charset declaration. The `charset` attribute specifies the character encoding used by the document. A character encoding declaration is a mechanism by which the character encoding used to store or transmit a document is specified. It is **extremely important** to declare character encoding just after starting `<head>` tag before any element that contains text, such as `<title>` element and, with in the first 1024 bytes of the document, failing to do so will cause browsers to guess the encoding.
+The first line you need inside the head i.e. `<meta charset="utf-8">` is the charset declaration. The `charset` attribute specifies the character encoding used by the document. A character encoding declaration is a mechanism by which the character encoding used to store or transmit a document is specified. It is **extremely important** to declare character encoding just after starting `<head>` tag before any element that contains text, such as `<title>` element and, with in the first 1024 bytes of the document, failing to do so will cause browsers to guess the encoding and it can also lead to security attacks.
 
 ```markup
 <!DOCTYPE html>
