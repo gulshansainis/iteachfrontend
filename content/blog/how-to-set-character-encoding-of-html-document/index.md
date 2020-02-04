@@ -35,6 +35,8 @@ Although it is not mandatory however it is a good practice to specify this infor
 
 If you do not specify `<meta charset="utf-8">` in the HEAD of the HTML document, the browser will look for the `Content-Type` response HTTP header sent from the server.
 
+The HTTP header is the preferred method, and it overrides the `<meta>` tag if present.
+
 ## What is `UTF-8`?
 
 **UTF-8** (_case insensitive_) is a character encoding capable of encoding all possible characters (called code points) in Unicode. The encoding is variable-length and uses 8-bit code units.
