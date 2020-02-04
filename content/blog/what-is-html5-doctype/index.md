@@ -29,6 +29,8 @@ We will be just talking about HTML5 doctypes here as, it is latest and backward-
 
 Doctype declaration is optional, but it would be useful for preventing browser "quirks mode". Doctype tells browser to render the page in "standards mode". The difference between quirks mode and standards mode can mean the difference between a nicely laid-out page and a confusing mess, so, as a result, you should always put your HTML5 file in standards mode by including the doctype.
 
+Doctype should be on the first line of your HTML file. Certain browsers will render your page in quirks mode if their is anything else before it - even a single blank line.
+
 ## Summary
 
 The main conclusion to draw from this article is that you should start all your HTML documents (i.e. anything that gets served as text/html) with `<!DOCTYPE html>` as the first thing in the source.
