@@ -1,13 +1,24 @@
-const path = require('path')
-const config = require('./config/website')
-const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
+const path = require("path")
+const config = require("./config/website")
+const pathPrefix = config.pathPrefix === "/" ? "" : config.pathPrefix
 module.exports = {
   pathPrefix: config.pathPrefix,
   siteMetadata: {
     siteUrl: config.siteUrl + pathPrefix,
     title: config.siteTitle,
     description: config.siteDescription,
-    keywords: ['learn frontend development', 'learn html', 'learn css', 'learn js', 'learn ReactJs', 'learn frontend development online', 'learn ReactJs online', 'learn html online', 'learn css online', 'learn js online'],
+    keywords: [
+      "learn frontend development",
+      "learn html",
+      "learn css",
+      "learn js",
+      "learn ReactJs",
+      "learn frontend development online",
+      "learn ReactJs online",
+      "learn html online",
+      "learn css online",
+      "learn js online",
+    ],
     canonicalUrl: config.siteUrl,
     twitterUrl: config.twitterUrl,
     twitterHandle: config.twitterHandle,
@@ -35,38 +46,44 @@ module.exports = {
     //   options: {contentBlog: 'content/blog'},
     // },
     {
-      resolve: `gatsby-plugin-page-creator`,
+      resolve: `gatsby-plugin-google-analytics`,
       options: {
-        path: path.join(__dirname, 'src', 'pages'),
+        trackingId: "UA-157586656-1",
       },
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-plugin-page-creator`,
       options: {
-        path: 'content/blog',
-        name: 'content/blog',
+        path: path.join(__dirname, "src", "pages"),
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: "content/blog",
+        name: "content/blog",
       },
     },
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        extensions: ['.mdx', '.md', '.markdown'],
+        extensions: [".mdx", ".md", ".markdown"],
         gatsbyRemarkPlugins: [
           {
-            resolve: 'gatsby-remark-images',
+            resolve: "gatsby-remark-images",
             options: {
-              backgroundColor: '#fafafa',
+              backgroundColor: "#fafafa",
               maxWidth: 1035,
             },
           },
         ],
       },
     },
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-emotion',
-    'gatsby-plugin-catch-links',
-    'gatsby-plugin-react-helmet',
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-emotion",
+    "gatsby-plugin-catch-links",
+    "gatsby-plugin-react-helmet",
     {
       resolve: `gatsby-plugin-feed`,
       options: {
@@ -89,8 +106,8 @@ module.exports = {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
                   date: edge.node.fields.date,
-                  url: site.siteMetadata.siteUrl + '/' + edge.node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + '/' + edge.node.fields.slug,
+                  url: site.siteMetadata.siteUrl + "/" + edge.node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + "/" + edge.node.fields.slug,
                 })
               })
             },
@@ -116,8 +133,8 @@ module.exports = {
                 }
               }
             `,
-            output: '/rss.xml',
-            title: 'Blog RSS Feed',
+            output: "/rss.xml",
+            title: "Blog RSS Feed",
           },
         ],
       },
@@ -129,7 +146,7 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-manifest',
+      resolve: "gatsby-plugin-manifest",
       options: {
         name: config.siteTitle,
         short_name: config.siteTitleShort,
@@ -137,21 +154,21 @@ module.exports = {
         start_url: config.pathPrefix,
         background_color: config.backgroundColor,
         theme_color: config.themeColor,
-        display: 'standalone',
+        display: "standalone",
         icons: [
           {
-            src: '/android-chrome-192x192.png',
-            sizes: '192x192',
-            type: 'image/png',
+            src: "/android-chrome-192x192.png",
+            sizes: "192x192",
+            type: "image/png",
           },
           {
-            src: '/android-chrome-512x512.png',
-            sizes: '512x512',
-            type: 'image/png',
+            src: "/android-chrome-512x512.png",
+            sizes: "512x512",
+            type: "image/png",
           },
         ],
       },
     },
-    'gatsby-plugin-offline',
+    "gatsby-plugin-offline",
   ],
 }
