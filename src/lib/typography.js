@@ -52,7 +52,7 @@ const typography = new Typography({
       marginBottom: "1.5em",
     },
     p: {
-      fontSize: `${fontSize}px`,
+      fontSize: `${Math.round(fontSize * 1.1)}px`,
     },
     ul: {
       fontSize: `${fontSize}px`,
