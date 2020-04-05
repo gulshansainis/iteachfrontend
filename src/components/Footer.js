@@ -39,6 +39,7 @@ const Footer = ({ organization, noSubscribeForm, twitterUrl, githubUrl }) => (
             `${organization.name} \u00A9 ${new Date().getFullYear()}`}
         </div>
         <div>
+          <strong>Follow me</strong>
           {githubUrl && <Social githubUrl={githubUrl} />}
           {twitterUrl && <Social twitterUrl={twitterUrl} />}
         </div>
